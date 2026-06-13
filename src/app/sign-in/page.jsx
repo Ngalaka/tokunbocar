@@ -1,12 +1,12 @@
-import BuyerSignUp from '@/component/BuyerSignUp'
+import Signin from '@/component/Signin'
 import React from 'react'
 
 export default function page() {
   return (
     <>
-    <div>
-     <BuyerSignUp/>
-    </div>
+      <div>
+        <Signin/>
+      </div>
     </>
   )
 }

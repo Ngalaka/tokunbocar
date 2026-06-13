@@ -60,8 +60,8 @@ export default function BuyerSignUp() {
           <div className="w-full h-auto mx-auto p-2 lg:max-w-3xl lg:mx-auto lg:p-6">
             <form action="" onSubmit={handleSubmit(onSubmit)}>
 
-              <div className='w-full lg:py-4'>
-                <label className="block mb-2 font-medium">
+              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+                <label className="block mb-2 font-medium py-2">
                   Email
                 </label>
 
@@ -80,15 +80,15 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='w-full py-2 lg:py-4'>
-                <label className="block mb-2 font-medium">
+              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+                <label className="block mb-2 font-medium py-2">
                   Password
                 </label>
 
                 <input
                   type="password"
                    className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg"
-                  {...register("email", {
+                  {...register("password", {
                     required: "Password field is required",
                   })}
                 />
@@ -100,31 +100,32 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className="py-4">
+              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
                 <span className="text-black/40 ">Never disclose your logos used car password to anyone</span>
               </div>
-              <div>
-                <label className="block mb-2 font-medium">
+
+              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+                <label className="block mb-2 font-medium py-2">
                   Comfirm Password
                 </label>
 
                 <input
                   type="password"
                   className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg"
-                  {...register("comfirmPassword", {
+                  {...register("comfirm", {
                     required: "Comfirm password field is required",
                   })}
                 />
 
-                {errors.comfirmPassword && (
+                {errors.comfirm && (
                   <p className="text-red-500 text-sm mt-1">
-                    {errors.comfirmPassword.message}
+                    {errors.comfirm.message}
                   </p>
                 )}
               </div>
 
-              <div className='py-4'>
-                <label className="block mb-2 font-medium">
+              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+                <label className="block mb-2 font-medium py-2">
                   First Name
                 </label>
 
@@ -143,14 +144,14 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='py-4'>
+              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
                 <label className="block mb-2 font-medium">
                   Last Name
                 </label>
 
                 <input
                   type="text"
-                  className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg"
+                  className="w-full  p-2 h-auto lg:w-full  border lg:p-3 rounded-lg outline-none hover:outline-1"
                   {...register("lName", {
                     required: "Last name field is required",
                   })}
@@ -163,14 +164,14 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='py-4'>
-                <label className="block mb-2 font-medium">
+              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+                <label className="block mb-2 font-medium py-2">
                   Mobile Number
                 </label>
 
                 <input
                   type="text"
-                   className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg"
+                   className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg outline-none hover:outline-1"
                   {...register("mobile", {
                     required: "Mobile number field is required",
                   })}
@@ -184,7 +185,7 @@ export default function BuyerSignUp() {
               </div>
 
 
-              <div className='py-4'>
+              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
                 <div className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="checkbox"
@@ -194,7 +195,7 @@ export default function BuyerSignUp() {
                       required: "check on the rules",
                     })}
                   />
-                  <span className="text-sm text-black">
+                  <span className="text-sm text-black py-2">
                     I agree to the terms and rules
                   </span>
                 </div>
@@ -206,11 +207,11 @@ export default function BuyerSignUp() {
               </div>
 
 
-              <div className=" w-full m-auto py-4 lg:mx-auto">
+              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-full h-auto p-2   lg:p-3 rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
+                  className={`w-full h-auto py-2  lg:p-3 rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
                 >
                   {loading ? "Registering..." : "Register"}
                 </button>
