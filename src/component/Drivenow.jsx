@@ -1,4 +1,4 @@
-import Image from 'next/image'
+ import Image from 'next/image'
 import React from 'react'
 import { MdOutlineArrowRightAlt } from 'react-icons/md'
 
@@ -7,12 +7,12 @@ export default function Drivenow() {
     <>
      
         {/*  Section to add cars */}
-        <div className="w-full mt-4 md:h-1/2 lg:w-full h-auto lg:mt-8">
+        <div className="w-full py-2 md:h-1/2 lg:w-full h-auto lg:py-4">
 
-          <div className="w-full flex-col justify-start items-start gap-4 py-8  lg:w-full h-auto bg-blue-900 flex lg:flex-row lg:justify-center lg:items-center">
+          <div className="w-full flex-col justify-start items-start gap-4 py-2  lg:w-full h-auto bg-blue-900 flex lg:flex-row lg:justify-center lg:items-center lg:8">
             <div className="w-full lg:w-[60%] h-auto flex flex-col justify-center items-start gap-4 py-4 px-8 bg-blue-900">
               <h1 className="text-3xl font-bold text-white py-4 px-2">Drive Now, Pay Later</h1>
-              <div className="w-full lg:w-[50%] h-auto py-4 px-2">
+              <div className="w-full py-2 lg:w-[50%] h-auto lg:py-4 px-2">
                 <p className="text-white/80 font-light text-sm">Get your dream car today and pay later with our flexible financing options.Low
                   deposit,easy monthly payments,no hidden charges pre-qualify in 2 minutes!
                 </p>

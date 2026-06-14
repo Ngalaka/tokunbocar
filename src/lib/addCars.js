@@ -55,7 +55,7 @@ export const addCars = [
 
    {
     id: 5,
- image: "/image2/car4.jpg",
+ image: "/image2/car9.jpg",
     useBy: "Nigeria Used",
     year: "2024",
     model: "KIA Sorento",

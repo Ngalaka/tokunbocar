@@ -20,7 +20,7 @@ export  const typeCar = [
       {
         id: 4,
         name: "Toyota",
-       logo: "/image2/car27.jpg",
+       logo: "/image2/car2.jpg",
       },
 
       {

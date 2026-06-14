@@ -13,7 +13,7 @@ export const carVarities = [
 
    {
     id: 3,
-    image: "/image2/car14.jpg",
+    image: "/image2/car9.jpg",
     
   },
 

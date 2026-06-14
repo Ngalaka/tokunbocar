@@ -8,7 +8,7 @@ export default function Sellerinformation() {
 
   return (
     <>
-      <div className='w-full h-auto py-8 lg:px-4'>
+      <div className='w-full h-auto py-2 lg:py-8 lg:px-4'>
         <div className='w-full flex justify-center items-center  lg:w-full h-auto lg:flex lg:flex-row lg:justify-around lg:items-center lg:gap-4 lg:py-8'>
           <p className='text-black text-xl font-bold'>Seller Information</p>
              <span className='text-green-800' ><IoCheckmarkDoneCircleOutline size={30} strokeWidth={10} /></span>

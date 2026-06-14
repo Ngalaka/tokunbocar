@@ -39,7 +39,7 @@ export default function Signin() {
     <>
       <div className='w-full flex-col justify-center items-center  lg:w-[90%] lg:h-auto lg:flex lg:flex-row lg:justify-between lg:items-center lg:gap-16 lg:mx-auto'>
         {/* Car image */}
-        <div className='w-full lg:w-[40%] h-auto'>
+        <div className='w-full lg:w-[50%] h-auto'>
           <Image src="/image/carBg2.jpg" width={300} height={300} alt='Car logo' className='w-full h-auto  lg:w-full lg:h-[90vh] object-cover' />
         </div>
 

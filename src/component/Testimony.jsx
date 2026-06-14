@@ -16,7 +16,7 @@ export default function Testimony() {
       <div className="w-full h-auto">
 
 
-        <div className="w-full flex flex-row justify-between items-center px-16 py-4">
+        <div className="w-full px-4 py-2 flex flex-row justify-between items-center lg:px-16lg: lg:py-4">
           <p className="text-xl font-bold">What our Customers Say</p>
           <div className="flex flex-row items-center gap-2">
             <p>Write a Review</p>
@@ -66,7 +66,7 @@ export default function Testimony() {
 
                 < SwiperSlide key={testi.id} >
                   <div className="border  border-black/10 py-3 px-3">
-                    <div className="w-[90%]  text-left pl-6 h-20 lg:w-full flex items-center justify-center lg:text-center text-sm text-black/50">
+                    <div className="w-full h-auto  text-left pl-6 lg:h-20 lg:w-full flex items-center justify-center lg:text-center text-xl text-black/50">
                       <p >{testi.testi}</p>
                     </div>
                     <div className='flex flex-row items-center gap-2 py-2 px-2'>

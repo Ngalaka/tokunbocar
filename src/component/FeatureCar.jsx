@@ -25,11 +25,11 @@ export default function FeatureCar() {
 
             {/* types */}
 
-            <div className="w-full h-auto flex flex-col justify-center items-center gap-12 md:w-1/2 lg:w-full lg:h-auto lg:flex lg:flex-row lg:justify-start lg:items-center lg:gap-4 lg:px-16 lg:py-2">
+            <div className="w-full h-auto flex flex-col py-4 px-4 justify-center items-center gap-12 md:w-1/2 lg:w-full lg:h-auto lg:flex lg:flex-row lg:justify-start lg:items-center lg:gap-4 lg:px-16 lg:py-2">
               {carLogos.map((logo) => (
                 <div key={logo.id} >
-                  <div className="w-50 h-30 border border-black/10 flex flex-col justify-center items-center gap-2 py-2 px-2">
-                    <Image src={logo.logo} width={100} height={100} alt="Lagos used cars" className="w-20 h-20 object-cover" />
+                  <div className="w-full  lg:w-50 lg:h-30 border border-black/10 flex flex-col justify-center items-center gap-2 py-2 px-2">
+                    <Image src={logo.logo} width={300} height={300} alt="Lagos used cars" className="w-full h-auto lg:w-20 lg:h-20 object-cover" />
                     <p>{logo.name}</p>
                   </div>
                 </div>
@@ -41,7 +41,7 @@ export default function FeatureCar() {
           {/* Browse Car by Type in Nigeria */}
           <div className="w-full md:w-1/2 lg:w-full h-auto mt-8">
             {/* browse car by Type */}
-            <div className="w-full flex flex-row justify-between items-center px-16 py-4">
+            <div className="w-full flex flex-row justify-between items-center px-8 py-2 lg:px-16 lg:py-4">
               <div className="w-full flex flex-row justify-between items-center  py-4">
                 <p className="text-xl font-bold">Browse Car Types in Nigeria</p>
                 <div className="flex flex-row items-center gap-2">
@@ -56,8 +56,8 @@ export default function FeatureCar() {
             <div  className="w-full h-auto flex flex-col justify-center items-center gap-12 md:w-1/2 lg:w-full lg:h-auto lg:flex lg:flex-row lg:justify-start lg:items-center lg:gap-4 lg:px-16 lg:py-2">
               {typeCar.map((type) => (
                 <div key={type.id} >
-                  <div className="w-full h-40 text-center flex-row justify-center items-center gap-12  lg:w-50 lg:h-30 border border-black/10 lg:flex lg:flex-col lg:justify-center lg:items-center lg:gap-2 lg:py-2 px-2">
-                    <Image src={type.logo} width={300} height={300} alt="Lagos used cars" className="w-40 h-auto lg:w-30 lg:h-30 object-cover" />
+                  <div className="w-full h-auto py-2 px-2 text-center flex-row justify-center items-center gap-12  lg:w-50 lg:h-30 border border-black/10 lg:flex lg:flex-col lg:justify-center lg:items-center lg:gap-2 lg:py-2 lg:px-2">
+                    <Image src={type.logo} width={300} height={300} alt="Lagos used cars" className="w-full h-auto lg:w-30 lg:h-30 object-cover" />
                     <p className='text-center'>{type.name}</p>
                   </div>
                 </div>

@@ -48,12 +48,12 @@ export default function BuyerSignUp() {
 
    
       {/* sign up section */}
-      <div className="w-[90%]  lg:w-full h-auto  lg:mx-auto lg: p-6">
+      <div className="w-full  lg:w-full h-auto  lg:mx-auto lg: p-6">
         <div className="w-full h-auto shadow-sm  bg-white  lg:w-200 lg:h-full m-auto lg:shadow-xl ">
 
         
           <div className=" w-full h-auto lg:py-2">
-            <h1 className="text-center lg:text-center lg:font-semibold">Register via email and phone</h1>
+            <h1 className="text-center text-xl lg:text-center lg:font-semibold lg:text-2xl">Register via email and phone</h1>
           </div>
 
           {/* form section */}
@@ -80,7 +80,7 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='w-full mx-auto lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full lg:w-full lg:py-4 lg:mx-1'>
                 <label className="block mb-2 font-medium py-2">
                   Password
                 </label>
@@ -100,7 +100,7 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='w-full  lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full lg:w-full lg:py-4 lg:mx-1'>
                 <span className="text-black/40 ">Never disclose your logos used car password to anyone</span>
               </div>
 

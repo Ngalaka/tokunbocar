@@ -11,7 +11,7 @@ export default function Carcomponent() {
       <div className='w-full h-auto px-4'>
         {carcomponent.map((component) => (
           <div key={component.id} >
-            <div className="w-[80%] grid-cols-1 mx-auto gap-8 py-4 px-4 lg:w-full lg:h-auto grid lg:grid-cols-4 lg:gap-4 lg:py-8">
+            <div className="w-full grid-cols-1 mx-auto gap-8 py-4 px-4 lg:w-full lg:h-auto grid lg:grid-cols-4 lg:gap-4 lg:py-8">
 
               <div className='w-full lg:w-37.5 h-auto py-2 px-4 flex flex-col justify-between items-center border border-black/20'>
                 {/* car year */}

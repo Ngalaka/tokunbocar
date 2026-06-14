@@ -13,7 +13,7 @@ export default function Recentcar() {
   return (
     <>
       {/* Recently car */}
-      <div className="w-full flex flex-row justify-between items-center px-16 py-4">
+      <div className="w-full py-8 flex flex-row justify-between items-center lg:px-16 lg:py-4">
         <p className="text-xl font-bold">Recently Added Cars</p>
         <div className="flex flex-row items-center gap-2">
           <p className="cursor-pointer">View all</p>
@@ -64,7 +64,7 @@ export default function Recentcar() {
               < SwiperSlide key={car.id} >
                 <div className="border border-black/10 py-3 px-3">
                   <div className=' flex flex-col justify-center items-center'>
-                    <Image src={car.image} width={300} height={300} alt='Lagos used cars' className="w-40 h-30 object-cover  text-center" />
+                    <Image src={car.image} width={300} height={300} alt='Lagos used cars' className="w-80 h-70 lg:w-40 lg:h-30 object-cover  text-center" />
                   </div>
                   <div className='px-4 py-4'>
                     <p >{car.useBy}</p>

@@ -6,7 +6,7 @@ import { TbPointFilled } from "react-icons/tb";
 export default function Keyfeature() {
   return (
     <>
-      <div className='w-full h-auto py-4 px-4'>
+      <div className='w-full h-auto py-2 px-2 lg:py-4 lg:px-4'>
         <h1 className='font-bold text-2xl'>Key feature</h1>
         {keyfeature.map((key) => (
           <div key={key.id} >

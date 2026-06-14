@@ -5,7 +5,7 @@ import React from 'react'
 export default function Listed() {
   return (
     <>
-      <div className='w-[90%] mx-auto py-8 lg:w-full h-auto lg:px-4'>
+      <div className='w-full px-2 py-8 lg:w-full h-auto lg:px-4'>
               {listeddetails.map((listed) => (
                 <div key={listed.id} >
                   <div className="w-full h-auto">
