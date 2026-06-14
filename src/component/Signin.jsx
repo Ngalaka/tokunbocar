@@ -39,7 +39,7 @@ export default function Signin() {
     <>
       <div className='w-full flex-col justify-center items-center  lg:w-[90%] lg:h-auto lg:flex lg:flex-row lg:justify-between lg:items-center lg:gap-16 lg:mx-auto'>
         {/* Car image */}
-        <div className='w-full lg:w-[50%] h-auto'>
+        <div className='w-full lg:w-[40%] h-auto'>
           <Image src="/image/carBg2.jpg" width={300} height={300} alt='Car logo' className='w-full h-auto  lg:w-full lg:h-[90vh] object-cover' />
         </div>
 
@@ -102,7 +102,7 @@ export default function Signin() {
 
               
 
-              <div className="w-[90%] mx-auto flex-col justify-start items-start py-4 lg:py-4 lg:mx-1 lg:w-full flex lg:justify-between lg:items-center lg:gap-2 ">
+              <div className="w-[90%] mx-auto flex-col justify-start items-start py-4 lg:py-2 lg:mx-1 lg:w-full flex lg:flex-row lg:justify-between lg:items-center lg:gap-2 ">
                 <p>
                   I don't have an Account
                   <Link href="/signUp" className='px-2 text-blue-600  underline'>
