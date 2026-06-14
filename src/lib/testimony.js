@@ -4,7 +4,7 @@ export const testimony = [
    testi:"Found my Toyota Camery within 3 days. The seller was genuine and the process was so smooth.LagosUsedCars is the real deals",
    name: "Gift Ngalaka",
    model: "Bought a 2022 Camery",
-   image: "/image/carBg6.jfif",
+   image: "/image2/car18.jpg",
   },
 
   {
@@ -12,7 +12,7 @@ export const testimony = [
    testi:"Found my Toyota Camery within 3 days. The seller was genuine and the process was so smooth.LagosUsedCars is the real deals",
    name: "Gift Ngalaka",
    model: "Bought a 2022 Camery",
-   image: "/image/carBg6.jfif",
+    image: "/image2/car19.jpg",
   },
 
   {
@@ -20,7 +20,7 @@ export const testimony = [
    testi:"Found my Toyota Camery within 3 days. The seller was genuine and the process was so smooth.LagosUsedCars is the real deals",
    name: "Gift Ngalaka",
    model: "Bought a 2022 Camery",
-   image: "/image/carBg6.jfif",
+   image: "/image2/car20.jpg",
   },
 
   {
@@ -28,7 +28,7 @@ export const testimony = [
    testi:"Found my Toyota Camery within 3 days. The seller was genuine and the process was so smooth.LagosUsedCars is the real deals",
    name: "Gift Ngalaka",
    model: "Bought a 2022 Camery",
-   image: "/image/carBg6.jfif",
+   image: "/image2/car21.jpg",
   },
 
 
@@ -37,7 +37,7 @@ export const testimony = [
    testi:"Found my Toyota Camery within 3 days. The seller was genuine and the process was so smooth.LagosUsedCars is the real deals",
    name: "Gift Ngalaka",
    model: "Bought a 2022 Camery",
-   image: "/image/carBg6.jfif",
+    image: "/image2/car22.jpg",
   },
 
   {
@@ -45,7 +45,7 @@ export const testimony = [
    testi:"Found my Toyota Camery within 3 days. The seller was genuine and the process was so smooth.LagosUsedCars is the real deals",
    name: "Gift Ngalaka",
    model: "Bought a 2022 Camery",
-   image: "/image/carBg6.jfif",
+   image: "/image2/car23.jpg",
   },
   
 ];

@@ -1,7 +1,7 @@
 export const addCars = [
   {
     id: 1,
-    image: "/image/carBg6.jfif",
+    image: "/image2/car.jpg",
     useBy: "Nigeria Used",
     year: "2024",
     model: "KIA Sorento",
@@ -15,7 +15,7 @@ export const addCars = [
 
    {
     id: 2,
-    image: "/image/carBg1.jfif",
+     image: "/image2/car1.jpg",
     useBy: "Nigeria Used",
     year: "2024",
     model: "KIA Sorento",
@@ -28,7 +28,7 @@ export const addCars = [
 
    {
     id: 3,
-    image: "/image/car12.jfif",
+    image: "/image2/car2.jpg",
     useBy: "Nigeria Used",
     year: "2024",
     model: "KIA Sorento",
@@ -41,7 +41,7 @@ export const addCars = [
 
    {
     id: 4,
-    image: "/image/carBg3.jfif",
+    image: "/image2/car3.jpg",
     useBy: "Nigeria Used",
     year: "2024",
     model: "KIA Sorento",
@@ -55,7 +55,7 @@ export const addCars = [
 
    {
     id: 5,
-    image: "/image/car8.jfif",
+ image: "/image2/car4.jpg",
     useBy: "Nigeria Used",
     year: "2024",
     model: "KIA Sorento",
@@ -69,7 +69,7 @@ export const addCars = [
 
    {
     id: 6,
-    image: "/image/car5.jfif",
+   image: "/image2/car5.jpg",
     useBy: "Nigeria Used",
     year: "2024",
     model: "KIA Sorento",

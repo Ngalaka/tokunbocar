@@ -1,7 +1,7 @@
 export const singlecar = [
   {
     id: 1,
-    image: "/image/carBg8.jpg"
+   image: "/image2/car17.jpg",
    
   },
 

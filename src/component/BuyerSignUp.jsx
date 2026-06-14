@@ -48,7 +48,7 @@ export default function BuyerSignUp() {
 
    
       {/* sign up section */}
-      <div className="w-full h-auto lg:max-w-3xl lg: mx-auto lg: p-6">
+      <div className="w-[90%]  lg:w-full h-auto  lg:mx-auto lg: p-6">
         <div className="w-full h-auto shadow-sm  bg-white  lg:w-200 lg:h-full m-auto lg:shadow-xl ">
 
         
@@ -60,7 +60,7 @@ export default function BuyerSignUp() {
           <div className="w-full h-auto mx-auto p-2 lg:max-w-3xl lg:mx-auto lg:p-6">
             <form action="" onSubmit={handleSubmit(onSubmit)}>
 
-              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full lg:w-full lg:py-4 lg:mx-1'>
                 <label className="block mb-2 font-medium py-2">
                   Email
                 </label>
@@ -80,7 +80,7 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full mx-auto lg:w-full lg:py-4 lg:mx-1'>
                 <label className="block mb-2 font-medium py-2">
                   Password
                 </label>
@@ -100,11 +100,11 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full  lg:w-full lg:py-4 lg:mx-1'>
                 <span className="text-black/40 ">Never disclose your logos used car password to anyone</span>
               </div>
 
-              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full  lg:w-full lg:py-4 lg:mx-1'>
                 <label className="block mb-2 font-medium py-2">
                   Comfirm Password
                 </label>
@@ -124,7 +124,7 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full lg:w-full lg:py-4 lg:mx-1'>
                 <label className="block mb-2 font-medium py-2">
                   First Name
                 </label>
@@ -144,7 +144,7 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full lg:w-full lg:py-4 lg:mx-1'>
                 <label className="block mb-2 font-medium">
                   Last Name
                 </label>
@@ -164,7 +164,7 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full lg:w-full lg:py-4 lg:mx-1'>
                 <label className="block mb-2 font-medium py-2">
                   Mobile Number
                 </label>
@@ -185,7 +185,7 @@ export default function BuyerSignUp() {
               </div>
 
 
-              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full lg:w-full lg:py-4 lg:mx-1'>
                 <div className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="checkbox"
@@ -207,7 +207,7 @@ export default function BuyerSignUp() {
               </div>
 
 
-              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full  lg:w-full lg:py-4 lg:mx-1'>
                 <button
                   type="submit"
                   disabled={loading}

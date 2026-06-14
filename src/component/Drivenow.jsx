@@ -9,7 +9,7 @@ export default function Drivenow() {
         {/*  Section to add cars */}
         <div className="w-full mt-4 md:h-1/2 lg:w-full h-auto lg:mt-8">
 
-          <div className="w-full flex-col justify-start items-start gap-4 py-8 md:w-1/2 lg:w-full h-auto bg-blue-900 flex lg:flex-row lg:justify-center lg:items-center">
+          <div className="w-full flex-col justify-start items-start gap-4 py-8  lg:w-full h-auto bg-blue-900 flex lg:flex-row lg:justify-center lg:items-center">
             <div className="w-full lg:w-[60%] h-auto flex flex-col justify-center items-start gap-4 py-4 px-8 bg-blue-900">
               <h1 className="text-3xl font-bold text-white py-4 px-2">Drive Now, Pay Later</h1>
               <div className="w-full lg:w-[50%] h-auto py-4 px-2">

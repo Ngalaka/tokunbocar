@@ -7,7 +7,7 @@ export default function Carprice() {
     <>
       <div>
         {/* Car price */}
-        <div className='w-full h-auto px-4 py-4'>
+        <div className='w-[80%] mx-auto py-8 lg:w-full h-auto lg:px-4 lg:py-4'>
           {carprice.map((details) => (
             <div key={details.id} >
               <div>
@@ -30,13 +30,13 @@ export default function Carprice() {
         <div className='w-full h-auto '>
           {carattribute.map((attribute) => (
             <div key={attribute.id}  >
-              <div className='w-full h-auto py-4 flex justify-between items-center gap-4 '>
-                <p className='bg-gray-300 w-80 text-center p-2 text-black cursor-pointer '>{attribute.type}</p>
-                <p className='bg-gray-300 w-80 text-center p-2 text-black cursor-pointer '>{attribute.pplstype}</p>
-                <p className='bg-gray-300 w-80 text-center p-2 text-black cursor-pointer '>{attribute.model}</p>
-                <p className='bg-gray-300 w-80 text-center p-2 text-black cursor-pointer '>{attribute.brand}</p>
-                <p className='bg-gray-300 w-80 text-center p-2 text-black cursor-pointer '>{attribute.status}</p>
-                <p className='bg-gray-300 w-80 text-center p-2 text-black cursor-pointer '>{attribute.location}</p>
+              <div className='w-[80%] mx-auto  lg:w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-2'>
+                <p className='bg-gray-300 w-80 text-center p-2 text-black cursor-pointer  '>{attribute.type}</p>
+                <p className='bg-gray-300 w-80 text-center p-2 text-black cursor-pointer  '>{attribute.pplstype}</p>
+                <p className='bg-gray-300 w-80 text-center p-2 text-black cursor-pointer  '>{attribute.model}</p>
+                <p className='bg-gray-300 w-80 text-center p-2 text-black cursor-pointer  '>{attribute.brand}</p>
+                <p className='bg-gray-300 w-80 text-center p-2 text-black cursor-pointer  '>{attribute.status}</p>
+                <p className='bg-gray-300 w-80 text-center p-2 text-black cursor-pointer  '>{attribute.location}</p>
               </div>
             </div>
           ))}

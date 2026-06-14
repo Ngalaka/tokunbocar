@@ -1,31 +1,31 @@
 export const carVarities = [
   {
     id: 1,
-    image: "/image/carBg6.jfif",
+   image: "/image2/car12.jpg",
    
   },
 
    {
     id: 2,
-    image: "/image/carBg1.jfif",
+    image: "/image2/car13.jpg",
    
   },
 
    {
     id: 3,
-    image: "/image/car12.jfif",
+    image: "/image2/car14.jpg",
     
   },
 
    {
     id: 4,
-    image: "/image/carBg1.jfif",
+    image: "/image2/car15.jpg",
    
   },
 
    {
     id: 5,
-    image: "/image/car12.jfif",
+ image: "/image2/car16.jpg",
     
   },
 

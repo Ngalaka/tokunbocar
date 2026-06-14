@@ -5,7 +5,7 @@ export default function Carinform() {
   
 return (
   <>
-    <div className='w-full h-auto px-4'>
+    <div className='w-[80%] mx-auto py-8 lg:w-full h-auto lg:px-4'>
       <div className='py-8' >
       <h1 className='font-bold text-2xl '>About This Car</h1>
       </div>
