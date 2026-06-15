@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="w-full h-auto md:w-1/2  lg:w-full  py-8">
 
           {/* footer detail */}
-          <div className="w-full h-auto flex-col text-black justify-center items-center py-4 px-4  md:w-1/2  lg:w-[90%] lg:m-auto lg:py-8 lg:px-16 flex lg:flex-row lg:justify-between lg:items-start lg:gap-8">
+          <div className="w-full h-auto flex-col text-black justify-center items-center py-4 px-4  md:w-1/2  lg:w-full lg:m-auto lg:py-8 lg:px-16 flex lg:flex-row lg:justify-between lg:items-start lg:gap-8">
             <div className="w-full gap-4  px-6 lg:w-[25%] h-auto flex flex-col justify-start items-start lg:gap-4">
               {/* logos  */}
               <p>LAGOS</p>
@@ -21,7 +21,7 @@ export default function Footer() {
                 <span className='text-sm'>Used Cars</span>
               </div>
 
-              <div className="w-full text-black px-6 h-auto md:w-1/2  lg:w-full py-4 lg:px-2">
+              <div className="w-full text-black h-auto md:w-1/2  lg:w-full py-4 lg:px-2">
                 <p>
                   Lagos's most trusted used car marketplace for buyers and sellers
                   used cars. Verified dealers, transparent pricing and a seamless

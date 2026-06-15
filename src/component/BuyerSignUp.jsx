@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import Navbar from './Navbar';
+import Image from 'next/image';
+import { IoCarSportOutline } from 'react-icons/io5';
+import Link from 'next/link';
 
 export default function BuyerSignUp() {
 
@@ -44,23 +47,31 @@ export default function BuyerSignUp() {
   return (
     <>
 
-    {/* Navbar */}
+      {/* Navbar */}
 
-   
+
       {/* sign up section */}
       <div className="w-full  lg:w-full h-auto  lg:mx-auto lg: p-6">
-        <div className="w-full h-auto shadow-sm  bg-white  lg:w-200 lg:h-full m-auto lg:shadow-xl ">
 
-        
+        <div className="w-full h-auto shadow-md  bg-white  lg:w-200 lg:h-full m-auto lg:shadow-xl ">
+          <div className='w-full lg:w-50 mx-auto h-auto flex flex-col justify-start items-start text-center py-4'>
+            <h1 className='w-full font-bold text-2xl cursor-pointer py-2 px-12 '>LAGOS</h1>
+
+            <div className='w-full h-auto flex justify-center items-center gap-4'>
+              <span><IoCarSportOutline /></span>
+              <span> Used Car</span>
+            </div>
+
+          </div>
           <div className=" w-full h-auto lg:py-2">
-            <h1 className="text-center text-xl lg:text-center lg:font-semibold lg:text-2xl">Register via email and phone</h1>
+            <h1 className="text-center text-xl lg:text-center lg:font-semibold lg:text-3xl text-blue-800">Register via email and phone</h1>
           </div>
 
           {/* form section */}
           <div className="w-full h-auto mx-auto p-2 lg:max-w-3xl lg:mx-auto lg:p-6">
             <form action="" onSubmit={handleSubmit(onSubmit)}>
 
-              <div className='w-full lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
                 <label className="block mb-2 font-medium py-2">
                   Email
                 </label>
@@ -80,14 +91,14 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='w-full lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
                 <label className="block mb-2 font-medium py-2">
                   Password
                 </label>
 
                 <input
                   type="password"
-                   className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg"
+                  className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg"
                   {...register("password", {
                     required: "Password field is required",
                   })}
@@ -100,7 +111,7 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='w-full lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
                 <span className="text-black/40 ">Never disclose your logos used car password to anyone</span>
               </div>
 
@@ -124,7 +135,7 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='w-full lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
                 <label className="block mb-2 font-medium py-2">
                   First Name
                 </label>
@@ -144,7 +155,7 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='w-full lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
                 <label className="block mb-2 font-medium">
                   Last Name
                 </label>
@@ -164,14 +175,14 @@ export default function BuyerSignUp() {
                 )}
               </div>
 
-              <div className='w-full lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
                 <label className="block mb-2 font-medium py-2">
                   Mobile Number
                 </label>
 
                 <input
                   type="text"
-                   className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg outline-none hover:outline-1"
+                  className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg outline-none hover:outline-1"
                   {...register("mobile", {
                     required: "Mobile number field is required",
                   })}
@@ -185,7 +196,7 @@ export default function BuyerSignUp() {
               </div>
 
 
-              <div className='w-full lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
                 <div className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="checkbox"
@@ -207,7 +218,7 @@ export default function BuyerSignUp() {
               </div>
 
 
-              <div className='w-full  lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
                 <button
                   type="submit"
                   disabled={loading}
@@ -215,6 +226,14 @@ export default function BuyerSignUp() {
                 >
                   {loading ? "Registering..." : "Register"}
                 </button>
+              </div>
+
+              
+              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
+                <Link href="/sign-in" className='flex justify-center items-center' >
+                  <p> Already have account?</p>
+                  <span className='px-2 text-blue-600  underline'>Login</span>
+                </Link>
 
               </div>
             </form>

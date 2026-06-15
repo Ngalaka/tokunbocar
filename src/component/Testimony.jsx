@@ -66,7 +66,7 @@ export default function Testimony() {
 
                 < SwiperSlide key={testi.id} >
                   <div className="border  border-black/10 py-3 px-3">
-                    <div className="w-full h-auto  text-left pl-6 lg:h-20 lg:w-full flex items-center justify-center lg:text-center text-xl text-black/50">
+                    <div className="w-full h-auto  text-left pl-6 lg:h-20 lg:w-full flex items-center justify-center lg:text-center  text-black/50">
                       <p >{testi.testi}</p>
                     </div>
                     <div className='flex flex-row items-center gap-2 py-2 px-2'>

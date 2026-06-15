@@ -1,7 +1,14 @@
+"use client"
 import { carVarities } from '@/lib/carVarities'
-import { singlecar } from '@/lib/singlecar'
-import Image from 'next/image'
 import React from 'react'
+import { singlecar } from '@/lib/singlecar'
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination"
+import Image from 'next/image'
+
 
 export default function Singlecarimage() {
   return (
@@ -18,18 +25,56 @@ export default function Singlecarimage() {
       </div>
 
 
+{/* acarosel codes */}
+      <div >
+        <Swiper
+          // modules={[ ]}
+          // modules={[Navigation, Pagination, Autoplay]}
+          // modules={[Pagination]}
+          spaceBetween={20}
+          slidesPerView={4}
+          // navigation
+          // pagination={{ clickable: true }}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
 
-      <div className='w-full h-auto flex flex-col justify-center items-center lg:flex-row lg:justify-start lg:items-center lg:gap-4 lg:px-4'>
-        {carVarities.map((list) => (
-          <div key={list.id}  >
-            <div className='w-60 py-2 lg:w-30 h-auto lg:py-4 '>
+            768: {
+              slidesPerView: 3,
+            },
+
+            1024: {
+              slidesPerView: 4,
+            },
+          }}
+          autoplay={{
+            delay: 3000,
+            // disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          // loop={false}
+          // loop={true}
+          className="overflow-hidden"
+        >
+
+          {/* addCars  */}
+
+          <div className="w-full h-auto flex flex-col justify-center items-center lg:flex-row lg:justify-between lg:items-center gap-2   ">
+
+            {carVarities.map((list) => (
+              < SwiperSlide key={list.id} >
+               <div className='w-[90%] mx-auto  py-4 lg:w-30 h-auto lg:py-4 '>
               <Image src={list.image} width={300} height={300} alt="Lagos used cars" className="w-full h-auto lg:h-20 object-cover " />
             </div>
-            </div>
-        ))}
+              </SwiperSlide>
+            ))}
+          </div>
+        </Swiper>
       </div>
-
+      
 </div>
+
     </>
   )
 }

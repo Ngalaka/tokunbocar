@@ -13,7 +13,7 @@ export default function Recentcar() {
   return (
     <>
       {/* Recently car */}
-      <div className="w-full py-8 flex flex-row justify-between items-center lg:px-16 lg:py-4">
+      <div className="w-[90%] mx-auto lg:w-full py-8 flex flex-row justify-between items-center lg:px-16 lg:py-4">
         <p className="text-xl font-bold">Recently Added Cars</p>
         <div className="flex flex-row items-center gap-2">
           <p className="cursor-pointer">View all</p>
@@ -26,7 +26,7 @@ export default function Recentcar() {
       {/* acarosel codes */}
       <div >
         <Swiper
-        // modules={[ ]}
+          // modules={[ ]}
           // modules={[Navigation, Pagination, Autoplay]}
           // modules={[Pagination]}
           spaceBetween={20}
@@ -80,6 +80,9 @@ export default function Recentcar() {
                         <p >{car.location}</p>
                       </div>
                       <p className="font-semibold text-sm">{car.price}</p>
+                    </div>
+                    <div className='w-full h-auto border border-black/20 px-2 py-2 mt-4 flex flex-col justify-end items-end text-black/30'>
+                    <p className="font-medium text-sm">{car.time}</p>
                     </div>
                   </div>
                 </div>
