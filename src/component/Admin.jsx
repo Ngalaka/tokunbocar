@@ -4,8 +4,7 @@ import Link from 'next/link';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { IoCarSportOutline } from 'react-icons/io5';
-
-export default function SellerSignUp() {
+export default function Admin() {
   const [loading, setLoading] = useState(false);
   // destructure useForm to get register, handleSubmit, errors, and reset functions
   const {
@@ -52,13 +51,13 @@ export default function SellerSignUp() {
 
           {/* form  */}
           <div className="w-full h-auto mx-auto p-2 lg:max-w-3xl lg:mx-auto lg:p-6">
-            <h1 className="text-center text-xl lg:text-center lg:font-semibold lg:text-3xl text-blue-800">Create your seller account</h1>
+            <h1 className="text-center text-xl lg:text-center lg:font-semibold lg:text-3xl text-blue-800">Create your admin account with email</h1>
 
             <form action="" onSubmit={handleSubmit(onSubmit)}>
 
               <div className='w-[90%] py-2 mx-auto lg:w-full '>
                 <label className=" block mb-2 font-medium">
-                  Name
+                  Full Name
                 </label>
 
                 <input
@@ -97,6 +96,27 @@ export default function SellerSignUp() {
                 )}
               </div>
 
+              <div className='w-[90%] py-2 mx-auto lg:w-full '>
+                <label className=" block mb-2 font-medium">
+                  Full Name
+                </label>
+
+                <input
+                  type="text" placeholder='phone number'
+                  className="w-full p-2 h-auto lg:w-full border rounded-lg"
+                  {...register("phone", {
+                    required: "Phone number field is required",
+                  })}
+                />
+
+                {errors.phone && (
+                  <p className="text-red-500 text-sm">
+                    {errors.phone.message}
+                  </p>
+                )}
+              </div>
+
+
               <div className='w-[90%] py-2 mx-auto lg:w-full lg:mx-1'>
                 <label className="block  font-medium">
                   Password
@@ -117,13 +137,97 @@ export default function SellerSignUp() {
                 )}
               </div>
 
+
+              <div className='w-[90%] py-2 mx-auto lg:w-full lg:mx-1'>
+                <label className="block  font-medium">
+                  Password
+                </label>
+
+                <input
+                  type="password" placeholder='**************************'
+                  className="w-full p-2 h-auto lg:w-full border rounded-lg placeholder:text-xl font-semibold"
+                  {...register("confirm", {
+                    required: "Password field is required",
+                  })}
+                />
+
+                {errors.confirm && (
+                  <p className="text-red-500 text-sm">
+                    {errors.confirm.message}
+                  </p>
+                )}
+              </div>
+
+
+              <div className='w-[90%] py-2 mx-auto lg:w-full lg:mx-1'>
+                <label className="block  font-medium">
+                  Admin Role
+                </label>
+
+                <select name="role">
+                  <option value="">Select Role</option>
+                  <option value="super-admin">Super Admin</option>
+                  <option value="manager">Manager</option>
+                  <option value="support">Support Staff</option>
+                </select>
+
+                {errors.role && (
+                  <p className="text-red-500 text-sm">
+                    {errors.role.message}
+                  </p>
+                )}
+              </div>
+
+
+                <div className='w-[90%] py-2 mx-auto lg:w-full '>
+                <label className=" block mb-2 font-medium">
+                  Admin ID
+                </label>
+
+                <input
+                  type="text" placeholder='Employee ID'
+                  className="w-full p-2 h-auto lg:w-full border rounded-lg"
+                  {...register("adminid", {
+                    required: "Employee ID field is required",
+                  })}
+                />
+
+                {errors.adminid && (
+                  <p className="text-red-500 text-sm">
+                    {errors.adminid.message}
+                  </p>
+                )}
+              </div>
+
+
+              <div className='w-[90%] py-2 mx-auto lg:w-full '>
+                <label className=" block mb-2 font-medium">
+                 Access Code
+                </label>
+
+                <input
+                  type="password" placeholder='...................'
+                  className="w-full p-2 h-auto lg:w-full border rounded-lg"
+                  {...register("accesscode", {
+                    required: "Access code field is required",
+                  })}
+                />
+
+                {errors.accesscode && (
+                  <p className="text-red-500 text-sm">
+                    {errors.accesscode.message}
+                  </p>
+                )}
+              </div>
+
+              
               <div className=" w-[90%] mx-auto lg:w-full l  flex flex-col justify-center items-center gap-2 py-2 ">
                 <button
                   type="submit"
                   disabled={loading}
                   className={`w-full h-auto p-2  rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
                 >
-                  {loading ? "Signing..." : "Sign up"}
+                  {loading ? "Registering..." : "Register"}
                 </button>
               </div>
 
@@ -132,7 +236,6 @@ export default function SellerSignUp() {
                   <p> Already have account?</p>
                   <span className=' text-blue-600  underline'>Login</span>
                 </Link>
-
               </div>
             </form>
           </div>

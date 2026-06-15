@@ -64,8 +64,8 @@ export default function Singlecarimage() {
 
             {carVarities.map((list) => (
               < SwiperSlide key={list.id} >
-               <div className='w-[90%] mx-auto  py-4 lg:w-30 h-auto lg:py-4 '>
-              <Image src={list.image} width={300} height={300} alt="Lagos used cars" className="w-full h-auto lg:h-20 object-cover " />
+               <div className="w-full h-auto  lg:w-70 lg:h-auto">
+              <Image src={list.image} width={300} height={300} alt="Lagos used cars" className="w-[90%] h-40 mx-auto lg:w-30 lg:h-30 object-cover" />
             </div>
               </SwiperSlide>
             ))}

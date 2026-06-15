@@ -51,9 +51,8 @@ export default function BuyerSignUp() {
 
 
       {/* sign up section */}
-      <div className="w-full  lg:w-full h-auto  lg:mx-auto lg: p-6">
-
-        <div className="w-full h-auto shadow-md  bg-white  lg:w-200 lg:h-full m-auto lg:shadow-xl ">
+      <div className="w-full  lg:w-[60%] h-auto  lg:mx-auto lg: p-6">
+        <div className="w-full h-auto shadow-sm bg-white  lg:w-200 lg:h-full m-auto lg:shadow-xl ">
           <div className='w-full lg:w-50 mx-auto h-auto flex flex-col justify-start items-start text-center py-4'>
             <h1 className='w-full font-bold text-2xl cursor-pointer py-2 px-12 '>LAGOS</h1>
 
@@ -68,168 +67,168 @@ export default function BuyerSignUp() {
           </div>
 
           {/* form section */}
-          <div className="w-full h-auto mx-auto p-2 lg:max-w-3xl lg:mx-auto lg:p-6">
+          <div className="w-full h-auto mx-auto lg:max-w-3xl lg:mx-auto lg:p-6">
             <form action="" onSubmit={handleSubmit(onSubmit)}>
 
-              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
-                <label className="block mb-2 font-medium py-2">
+              <div className='w-full py-1 lg:w-full'>
+                <label className="block font-medium">
                   Email
                 </label>
 
                 <input
                   type="email"
-                  className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg"
+                  className="w-full py-2 h-auto lg:w-full border rounded-lg"
                   {...register("email", {
                     required: "Email field is required",
                   })}
                 />
 
                 {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="text-red-500 text-sm">
                     {errors.email.message}
                   </p>
                 )}
               </div>
 
-              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
-                <label className="block mb-2 font-medium py-2">
+              <div className='w-full py-2 lg:w-full'>
+                <label className="block  font-medium ">
                   Password
                 </label>
 
                 <input
                   type="password"
-                  className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg"
+                  className="w-full h-auto py-2 lg:w-full border rounded-lg"
                   {...register("password", {
                     required: "Password field is required",
                   })}
                 />
 
                 {errors.password && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="text-red-500 text-sm">
                     {errors.password.message}
                   </p>
                 )}
               </div>
 
-              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full py-2 lg:w-full '>
                 <span className="text-black/40 ">Never disclose your logos used car password to anyone</span>
               </div>
 
-              <div className='w-full  lg:w-full lg:py-4 lg:mx-1'>
-                <label className="block mb-2 font-medium py-2">
+              <div className='w-full py-2 lg:w-full'>
+                <label className="block mb-2 font-medium ">
                   Comfirm Password
                 </label>
 
                 <input
                   type="password"
-                  className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg"
+                  className="w-full h-auto py-2 lg:w-full border rounded-lg"
                   {...register("comfirm", {
                     required: "Comfirm password field is required",
                   })}
                 />
 
                 {errors.comfirm && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="text-red-500 text-sm">
                     {errors.comfirm.message}
                   </p>
                 )}
               </div>
 
-              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
-                <label className="block mb-2 font-medium py-2">
+              <div className='w-full lg:w-full'>
+                <label className="block font-medium">
                   First Name
                 </label>
 
                 <input
                   type="text"
-                  className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg"
+                  className="w-full h-auto py-2 lg:w-full border rounded-lg"
                   {...register("fName", {
                     required: "First name field is required",
                   })}
                 />
 
                 {errors.fName && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="text-red-500 text-sm">
                     {errors.fName.message}
                   </p>
                 )}
               </div>
 
-              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
-                <label className="block mb-2 font-medium">
+              <div className='w-full py-2 lg:w-full '>
+                <label className="block font-medium">
                   Last Name
                 </label>
 
                 <input
                   type="text"
-                  className="w-full  p-2 h-auto lg:w-full  border lg:p-3 rounded-lg outline-none hover:outline-1"
+                  className="w-full  py-2 h-auto lg:w-full  border rounded-lg outline-none hover:outline-1"
                   {...register("lName", {
                     required: "Last name field is required",
                   })}
                 />
 
                 {errors.lName && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="text-red-500 text-sm">
                     {errors.lName.message}
                   </p>
                 )}
               </div>
 
-              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
-                <label className="block mb-2 font-medium py-2">
+              <div className='w-full py-2 lg:w-full lg:mx-1'>
+                <label className="block font-medium ">
                   Mobile Number
                 </label>
 
                 <input
                   type="text"
-                  className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg outline-none hover:outline-1"
+                  className="w-full py-2 h-auto lg:w-full border rounded-lg outline-none hover:outline-1"
                   {...register("mobile", {
                     required: "Mobile number field is required",
                   })}
                 />
 
                 {errors.mobile && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="text-red-500 text-sm ">
                     {errors.mobile.message}
                   </p>
                 )}
               </div>
 
 
-              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full py-2 lg:w-full'>
                 <div className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="checkbox"
-                    className={`w-4 h-4 border border-black/40 p-2 mx-2 outline-none ${errors.agree ? 'border-2 border-red-500' : ' border border-green-700'
+                    className={`w-4 h-4 border py-2 border-black/40 outline-none ${errors.agree ? 'border-2 border-red-500' : ' border border-green-700'
                       }`}
                     {...register("agree", {
                       required: "check on the rules",
                     })}
                   />
-                  <span className="text-sm text-black py-2">
+                  <span className="text-sm text-black">
                     I agree to the terms and rules
                   </span>
                 </div>
                 {errors.agree && (
-                  <p className="text-red-500 text-sm mt-1 pl-4">
+                  <p className="text-red-500 text-sm">
                     {errors.agree.message}
                   </p>
                 )}
               </div>
 
 
-              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full py-2 lg:w-full'>
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-full h-auto py-2  lg:p-3 rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
+                  className={`w-full h-auto py-2 rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
                 >
                   {loading ? "Registering..." : "Register"}
                 </button>
               </div>
 
               
-              <div className='w-full py-2 lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full py-2 lg:w-full '>
                 <Link href="/sign-in" className='flex justify-center items-center' >
                   <p> Already have account?</p>
                   <span className='px-2 text-blue-600  underline'>Login</span>

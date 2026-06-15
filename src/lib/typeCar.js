@@ -1,37 +1,43 @@
 export  const typeCar = [
     {
         id: 1,
-        name: "Toyota",
+       name: "Ford Cars in Nigeria",
        logo: "/image2/car24.jpg",
       },
 
       {
         id: 2,
-        name: "Toyota",
+         name: "Honda Cars in Nigeria",
        logo: "/image2/car25.jpg",
       },
 
       {
         id: 3,
-        name: "Toyota",
+        name: "Audic Cars in Nigeria",
        logo: "/image2/car26.jpg",
       },
 
       {
         id: 4,
-        name: "Toyota",
+        name: "Toyota Cars in Nigeria",
        logo: "/image2/car2.jpg",
       },
 
       {
         id: 5,
-        name: "Toyota",
+         name: "Nissan Cars in Nigeria",
        logo: "/image2/car28.jpg",
       },
 
       {
         id: 6,
-        name: "Toyota",
+        name: "Benz Cars in Nigeria",
+       logo: "/image2/car29.jpg",
+      },
+
+       {
+        id: 7,
+        name: "BMW Cars in Nigeria",
        logo: "/image2/car29.jpg",
       },
 ]
