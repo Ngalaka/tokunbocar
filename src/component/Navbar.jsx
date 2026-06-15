@@ -8,59 +8,93 @@ import { TiStarburstOutline } from 'react-icons/ti'
 export default function Navbar() {
   return (
     <>
-      <div className='w-full flex-col justify-start items-start gap-4  lg:w-[90%] h-auto lg:flex lg:flex-row lg:justify-between lg:items-center lg:gap-4 lg:p-4  lg:mx-auto'>
-        {/* Logo */}
-        <div className='w-full py-4 px-4  flex flex-col justify-start items-start gap-1  lg:w-[20%]  h-auto lg:py-1 lg:px-1 lg:flex-col'>
-          <p className=''><Link href="/" className='text-gray-700 hover:text-blue-600' >LAGOS</Link></p>
-          <div className=' gap-4 cursor-pointer '>
-            <Link
-              href="/" className='flex flex-col justify-start items-start gap-2 lg:flex-row lg:justify-center lg:items-center lg:gap-4  text-gray-700 hover:text-blue-600'>
-            <span className='text-blue-900'><IoCarSportOutline /></span>
-            <span className='text-sm'>Used Cars</span>
-            </Link>
+      <div className="w-full flex flex-col gap-6 px-4 py-4 lg:w-[90%] lg:flex-row lg:justify-between lg:items-center lg:mx-auto">
 
-            
-          </div>
-        </div>
+  {/* Logo Section */}
+  <div className="w-full lg:w-1/4 flex flex-col gap-3">
+    <p>
+      <Link
+        href="/"
+        className="text-gray-700 hover:text-blue-600 font-semibold"
+      >
+        LAGOS
+      </Link>
+    </p>
 
-        {/* Search */}
-        <div className='w-full py-4 justify-start items-start gap-8 px-4 lg:w-[25%] h-auto flex lg:flex-row lg:justify-center lg:items-center lg:gap-0'>
-          <input type="text" placeholder='search' className='border border-gray-300 outline-none w-100 lg:w-50 lg:pl-16 py-2 rounded-lg placeholder:text-sm' />
-          <button className='bg-blue-900 w-40 px-2 lg:w-20 py-2 lg:px-4 text-white text-sm rounded-s-lg cursor-pointer'>search</button>
-        </div>
+    <Link
+      href="/"
+      className="flex items-center gap-3 text-gray-700 hover:text-blue-600"
+    >
+      <span className="text-blue-900 text-xl">
+        <IoCarSportOutline />
+      </span>
 
-        {/* Drive Now */}
-        <div className='w-full justify-center gap-2 px-4  mx-auto lg:w-[45%] h-auto flex  lg:justify-between lg:items-center lg:gap-2 '>
-          <div className=' flex gap-4 justify-between items-center lg:gap-2'>
-            <span className='cursor-pointer text-blue-900 hover:text-blue-600'><TiStarburstOutline /></span>
-            < button 
-            className='text-sm cursor-pointer py-2  text-gray-700 hover:text-blue-600'>
-                <Link href="/single-car"> Drive Now Pay Later</Link>
-            </button>
-          </div>
+      <span className="text-sm">
+        Used Cars
+      </span>
+    </Link>
+  </div>
 
-          {/* login */}
-          <div className=''>
-            <Link
-              href="/sign-in"
-              className="flex items-center  text-gray-700 hover:text-blue-600"
-            >
-              <span className='text-blue-900'><FaUser size={20} /></span>
-              <span className=' px-4 py-2'>Login</span>
-            </Link>
-          </div>
-          {/* Toggle */}
-          
-        <div className='w-24 mx-auto'>
-          <button className='w-full  bg-blue-900 py-2  text-white text-sm cursor-pointer rounded-lg'>
-             <Link href="#">Sell your Car</Link>
-          </button>
-        </div>
-        </div>
+  {/* Search Section */}
+  <div className="w-full lg:w-1/3 flex flex-col sm:flex-row gap-2">
 
-        
+    <input
+      type="text"
+      placeholder="Search cars..."
+      className="w-full border border-gray-300 outline-none px-4 py-2 rounded-lg placeholder:text-sm"
+    />
 
-      </div>
+    <button
+      className="bg-blue-900 px-5 py-2 text-white text-sm rounded-lg hover:bg-blue-700 transition"
+    >
+      Search
+    </button>
+
+  </div>
+
+  {/* Action Section */}
+  <div className="w-full lg:w-auto flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:gap-6">
+
+    {/* Drive Now */}
+    <Link
+      href="/single-car"
+      className="flex items-center gap-2 text-gray-700 hover:text-blue-600"
+    >
+      <span className="text-blue-900 text-xl">
+        <TiStarburstOutline />
+      </span>
+
+      <span className="text-sm">
+        Drive Now Pay Later
+      </span>
+    </Link>
+
+    {/* Login */}
+    <Link
+      href="/sign-in"
+      className="flex items-center gap-2 text-gray-700 hover:text-blue-600"
+    >
+      <span className="text-blue-900">
+        <FaUser size={20} />
+      </span>
+
+      <span className="text-sm">
+        Login
+      </span>
+    </Link>
+
+    {/* Sell Car Button */}
+    <Link
+      href="/sell-car"
+      className="bg-blue-900 px-5 py-2 rounded-lg text-white text-sm hover:bg-blue-700 transition"
+    >
+      Sell Your Car
+    </Link>
+
+  </div>
+
+</div>
+
     </>
   )
 }
