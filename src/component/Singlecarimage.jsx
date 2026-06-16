@@ -31,8 +31,8 @@ export default function Singlecarimage() {
           // modules={[ ]}
           // modules={[Navigation, Pagination, Autoplay]}
           // modules={[Pagination]}
-          spaceBetween={20}
-          slidesPerView={4}
+          spaceBetween={1}
+          slidesPerView={3}
           // navigation
           // pagination={{ clickable: true }}
           breakpoints={{
@@ -60,12 +60,12 @@ export default function Singlecarimage() {
 
           {/* addCars  */}
 
-          <div className="w-full h-auto flex flex-col justify-center items-center lg:flex-row lg:justify-between lg:items-center gap-2   ">
+          <div className="w-full h-auto flex flex-col justify-center items-center lg:flex-row lg:justify-center lg:items-center gap-2   ">
 
             {carVarities.map((list) => (
               < SwiperSlide key={list.id} >
-               <div className="w-full h-auto  lg:w-70 lg:h-auto">
-              <Image src={list.image} width={300} height={300} alt="Lagos used cars" className="w-[90%] h-40 mx-auto lg:w-30 lg:h-30 object-cover" />
+               <div className="w-full h-auto lg:w-72 lg:h-auto">
+              <Image src={list.image} width={300} height={300} alt="Lagos used cars" className="w-[90%] h-40 mx-auto lg:w-32 lg:h-30 object-cover" />
             </div>
               </SwiperSlide>
             ))}

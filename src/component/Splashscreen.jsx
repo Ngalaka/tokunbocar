@@ -65,7 +65,7 @@ export default function Splashscreen() {
 
           {/* card for logos platform */}
           <div className=' w-full h-auto py-4 px-4 lg:w-160 lg:py-16 lg:px-16  text-white '>
-            <p className='text-3xl py-2 lg:text-7xl  lg:py-4'>Logos #1 Platform to Buy & Sell Used Cars </p>
+            <p className='text-3xl py-2 lg:text-7xl  lg:py-4'>Logos #1 platform to Buy & Sell Used Cars </p>
             <p className='sm:text-sm lg:text-xl  lg:py-4'>Fine verified tokunbo, Nigerian-used and brand new cars transparent pricing. Real dealers</p>
           </div>
 

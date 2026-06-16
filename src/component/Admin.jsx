@@ -161,10 +161,10 @@ export default function Admin() {
 
               <div className='w-[90%] py-2 mx-auto lg:w-full lg:mx-1'>
                 <label className="block  font-medium">
-                  Admin Role
+                   Role
                 </label>
 
-                <select name="role">
+                <select  {...register("role")}>
                   <option value="">Select Role</option>
                   <option value="super-admin">Super Admin</option>
                   <option value="manager">Manager</option>
