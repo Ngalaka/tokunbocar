@@ -56,7 +56,7 @@ export default function BuyerSignUp() {
 
           </div>
           <div className=" w-full h-auto lg:py-2">
-            <h1 className="text-center text-xl lg:text-center lg:font-semibold lg:text-3xl text-blue-800">Register via email and phone</h1>
+            <h1 className="text-center text-xl lg:text-center lg:font-semibold lg:text-3xl text-blue-800">Create your buyer account</h1>
           </div>
 
           {/* form section */}
