@@ -5,10 +5,11 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { FaRegEyeSlash } from 'react-icons/fa6';
 import { IoCarSportOutline, IoEyeSharp } from 'react-icons/io5';
+import { notifySuccess, notifyError, } from "@/lib/toast";
 
 export default function Signin() {
   const [loading, setLoading] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   // destructure useForm to get register, handleSubmit, errors, and reset functions
   const {
     register,
@@ -26,9 +27,21 @@ export default function Signin() {
       alert("Form Submitted Successfully", data);
 
       // Clear all form fields
+      notifySuccess(
+        response.data.message ||
+        "Login Successful"
+      );
+
       reset();
-    } catch (error) {
+    }
+
+
+    catch (error) {
       console.log(error);
+       notifyError(
+        error.response?.data?.message ||
+          "Login Failed"
+      );
     } finally {
       setLoading(false);
     }
@@ -83,24 +96,24 @@ export default function Signin() {
                   Password
                 </label>
 
-                  <div className="border border-black  px-2 outline-none hover:outline-1 rounded-lg placeholder:px-3 text-sm flex justify-between items-center">
-                <input
-                 type={showPassword ? "text" : "password"} name='password' placeholder='********************'
-                  className="w-full p-2 h-auto lg:w-full outline-none"
-                  {...register("password", {
-                    required: "Password field is required",
-                     minLength: {
-                      value: 12,
-                      message: "Password must be at least 8 characters",
-                    },
+                <div className="border border-black  px-2 outline-none hover:outline-1 rounded-lg placeholder:px-3 text-sm flex justify-between items-center">
+                  <input
+                    type={showPassword ? "text" : "password"} name='password' placeholder='********************'
+                    className="w-full p-2 h-auto lg:w-full outline-none"
+                    {...register("password", {
+                      required: "Password field is required",
+                      minLength: {
+                        value: 12,
+                        message: "Password must be at least 8 characters",
+                      },
 
-                  })}
-                />
-                <div onClick={() => setShowPassword(!showPassword)} className='cursor-pointer'>
+                    })}
+                  />
+                  <div onClick={() => setShowPassword(!showPassword)} className='cursor-pointer'>
                     {
-                      showPassword ? <IoEyeSharp size={25} /> : <FaRegEyeSlash size={25} /> 
+                      showPassword ? <IoEyeSharp size={25} /> : <FaRegEyeSlash size={25} />
                     }
-                    
+
                   </div>
                 </div>
 
