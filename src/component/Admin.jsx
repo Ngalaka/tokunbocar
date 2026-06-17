@@ -5,36 +5,34 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { IoCarSportOutline } from 'react-icons/io5';
 export default function Admin() {
-  const [loading, setLoading] = useState(false);
-  // destructure useForm to get register, handleSubmit, errors, and reset functions
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm({
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
-
-
-  const onSubmit = async (data) => {
-    setLoading(true);
-
-    try {
-
-      console.log("Form Submitted Successfully", data);
-
-      // Clear all form fields
-      reset();
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+   const [loading, setLoading] = useState(false);
+     // destructure useForm to get register, handleSubmit, errors, and reset functions
+     const {
+       register,
+       handleSubmit,
+       formState: { errors },
+       reset,
+       //  getValues, // for checking password and confirm password
+     } = useForm();
+    
+     const onSubmit = async (data) => {
+       // compare password and confirm password
+       if (data.password !== data.confirm) {
+        return alert("Passwords do not match");
+       }
+       setLoading(true);
+       try {
+   
+        alert("Form Submitted Successfully", data);
+   
+         // Clear all form fields
+         reset();
+       } catch (error) {
+         console.log(error);
+       } finally {
+         setLoading(false);
+       }
+     };
   return (
     <>
       <div className="w-full lg:w-[60%] h-auto  lg:mx-auto lg: p-6">
@@ -127,6 +125,10 @@ export default function Admin() {
                   className="w-full p-2 h-auto lg:w-full border rounded-lg placeholder:text-xl font-semibold"
                   {...register("password", {
                     required: "Password field is required",
+                     minLength: {
+                      value: 12,
+                      message: "Password must be at least 12 characters",
+                    },
                   })}
                 />
 
@@ -140,14 +142,18 @@ export default function Admin() {
 
               <div className='w-[90%] py-2 mx-auto lg:w-full lg:mx-1'>
                 <label className="block  font-medium">
-                  Password
+                  Confirm password
                 </label>
 
                 <input
                   type="password" placeholder='**************************'
                   className="w-full p-2 h-auto lg:w-full border rounded-lg placeholder:text-xl font-semibold"
                   {...register("confirm", {
-                    required: "Password field is required",
+                    required: "Confirm password field is required",
+                     minLength: {
+                      value: 12,
+                      message: "Password must be at least 12 characters",
+                    },
                   })}
                 />
 

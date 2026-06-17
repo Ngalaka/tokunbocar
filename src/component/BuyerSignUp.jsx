@@ -9,41 +9,34 @@ import Link from 'next/link';
 
 export default function BuyerSignUp() {
 
-  const [loading, setLoading] = useState(false);
-  // destructure useForm to get register, handleSubmit, errors, and reset functions
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm({
-    defaultValues: {
-      email: "",
-      password: "",
-      fName: "",
-      lName: "",
-      phone: "",
-      agree: false
-    },
-  });
-
-
-  const onSubmit = async (data) => {
-    setLoading(true);
-
-    try {
-
-      console.log("Form Submitted Successfully", data);
-
-      // Clear all form fields
-      reset();
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
+ const [loading, setLoading] = useState(false);
+   // destructure useForm to get register, handleSubmit, errors, and reset functions
+   const {
+     register,
+     handleSubmit,
+     formState: { errors },
+     reset,
+     //  getValues, // for checking password and confirm password
+   } = useForm();
+  
+   const onSubmit = async (data) => {
+     // compare password and confirm password
+     if (data.password !== data.confirm) {
+      return alert("Passwords do not match");
+     }
+     setLoading(true);
+     try {
+ 
+      alert("Form Submitted Successfully", data);
+ 
+       // Clear all form fields
+       reset();
+     } catch (error) {
+       console.log(error);
+     } finally {
+       setLoading(false);
+     }
+   };
   return (
     <>
 
@@ -100,6 +93,10 @@ export default function BuyerSignUp() {
                   className="w-full h-auto py-2 lg:w-full border rounded-lg"
                   {...register("password", {
                     required: "Password field is required",
+                    minLength: {
+                      value: 12,
+                      message: "Password must be at least 8 characters",
+                    },
                   })}
                 />
 
@@ -116,20 +113,24 @@ export default function BuyerSignUp() {
 
               <div className='w-full py-2 lg:w-full'>
                 <label className="block mb-2 font-medium ">
-                  Comfirm Password
+                  Confirm Password
                 </label>
 
                 <input
                   type="password"
                   className="w-full h-auto py-2 lg:w-full border rounded-lg"
-                  {...register("comfirm", {
-                    required: "Comfirm password field is required",
+                  {...register("confirm", {
+                    required: "Confirm password field is required",
+                    minLength: {
+                      value: 12,
+                      message: "Password must be at least 8 characters",
+                    },
                   })}
                 />
 
-                {errors.comfirm && (
+                {errors.confirm && (
                   <p className="text-red-500 text-sm">
-                    {errors.comfirm.message}
+                    {errors.confirm.message}
                   </p>
                 )}
               </div>
@@ -217,17 +218,17 @@ export default function BuyerSignUp() {
               </div>
 
 
-              <div className='w-full py-2 lg:w-full'>
+              <div className=" w-[90%] mx-auto lg:w-full l  flex flex-col justify-center items-center gap-2 py-2 ">
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-full h-auto py-2 rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
+                  className={`w-full h-auto p-2   lg:p-2 rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-gray-300 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
                 >
-                  {loading ? "Registering..." : "Register"}
+                  {loading ? "Signing..." : "Sign up"}
                 </button>
               </div>
 
-              
+
               <div className='w-full py-2 lg:w-full '>
                 <Link href="/sign-in" className='flex justify-center items-center' >
                   <p> Already have account?</p>

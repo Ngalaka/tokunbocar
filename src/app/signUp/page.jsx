@@ -30,7 +30,7 @@ export default function page() {
     <>
       <div>
         {/* user sign up roles */}
-        <div className='w-full h-auto lg:w-full mx-auto py-4 shadow-md'>
+        <div className='w-full h-auto lg:w-full mx-auto py-4'>
           <div className='full h-auto mx-auto text-center py-4 '>
             <h1 className="text-2xl font-semibold text-blue-800">
               Tokunbo Car Sign up

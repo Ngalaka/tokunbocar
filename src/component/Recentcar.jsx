@@ -14,7 +14,7 @@ export default function Recentcar() {
     <>
       {/* Recently car */}
       <div className="w-[90%] mx-auto lg:w-full py-8 flex flex-row justify-between items-center lg:px-16 lg:py-4">
-        <p className="text-xl font-bold">Recently Added Cars</p>
+        <p className="text-xl font-bold">Feature Car for Sale</p>
         <div className="flex flex-row items-center gap-2">
           <p className="cursor-pointer">View all</p>
           <span><IoIosArrowRoundForward /></span>

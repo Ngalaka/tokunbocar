@@ -10,12 +10,14 @@ import React from 'react'
 export default function page() {
   return (
     <>
-    <Splashscreen/>
-      <FeatureCar/>
-      <Drivenow/>
-      <Recentcar/>
-      <Testimony/>
-      <Speedometer/>
+      <Splashscreen />
+      <Recentcar />
+      <FeatureCar />
+      <Drivenow />
+      <Recentcar />
+      <Testimony />
+      <Speedometer />
+
     </>
   )
 }

@@ -6,32 +6,30 @@ import { useForm } from 'react-hook-form';
 import { IoCarSportOutline } from 'react-icons/io5';
 
 export default function SellerSignUp() {
-  const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
   // destructure useForm to get register, handleSubmit, errors, and reset functions
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm({
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
-
-
+    //  getValues, // for checking password and confirm password
+  } = useForm();
+ 
   const onSubmit = async (data) => {
+    // compare password and confirm password
+    if (data.password !== data.confirm) {
+     return alert("Passwords do not match");
+    }
     setLoading(true);
-
     try {
-
-      console.log("Form Submitted Successfully", data);
-
+     alert("Form Submitted Successfully", data);
       // Clear all form fields
       reset();
     } catch (error) {
+      setLoading(false);
       console.log(error);
+      
     } finally {
       setLoading(false);
     }
@@ -104,9 +102,13 @@ export default function SellerSignUp() {
 
                 <input
                   type="password" placeholder='**************************'
-                  className="w-full p-2 h-auto lg:w-full border rounded-lg placeholder:text-xl font-semibold"
+                  className="w-full p-2 h-auto lg:w-full border rounded-lg px-2 placeholder:text-xl font-semibold"
                   {...register("password", {
                     required: "Password field is required",
+                    minLength: {
+                      value: 12,
+                      message: "Password must be at least 12 characters",
+                    },
                   })}
                 />
 
@@ -117,11 +119,42 @@ export default function SellerSignUp() {
                 )}
               </div>
 
+              <div className='w-full py-2 lg:w-full'>
+                <label className="block mb-2 font-medium ">
+                  Confirm Password
+                </label>
+
+                <input
+                  type="password" placeholder='********************'
+                  className="w-full h-auto py-2 lg:w-full border rounded-lg px-2 placeholder:text-xl font-semibold"
+                  {...register("confirm", {
+                    required: "Confirm password field is required",
+                    minLength: {
+                      value: 12,
+                      message: "Password must be at least 12 characters",
+                    },
+
+                    // another way to compare password with confirm password
+
+                    // validate: (value) =>
+                    //   value === getValues("password") ||
+                    //   "Passwords do not match",
+                  })}
+                />
+
+                {errors.confirm && (
+                  <p className="text-red-500 text-sm">
+                    {errors.confirm.message}
+                  </p>
+                )}
+              </div>
+
+
               <div className=" w-[90%] mx-auto lg:w-full l  flex flex-col justify-center items-center gap-2 py-2 ">
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-full h-auto p-2  rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
+                  className={`w-full h-auto p-2   lg:p-2 rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-gray-300 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
                 >
                   {loading ? "Signing..." : "Sign up"}
                 </button>

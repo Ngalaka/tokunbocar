@@ -15,8 +15,9 @@ export default function Faq() {
     <>
       <div className='w-full h-auto m-auto'>
         <div className='w-full h-auto lg:w-225 lg:h-auto lg:mx-auto lg:shadow-md lg:px-2 lg:py-2'>
-          <div className='w-full h-auto py-4'>
-          <h2 className="text-2xl font-semibold text-center text-blue-900 ">Frequently Asked Questions</h2>
+          <div className='w-[90%] lg:w-150 h-auto mx-auto py-4 text-center'>
+          <h2 className="text-2xl font-semibold text-blue-900 ">Frequently Asked Questions</h2>
+          <p className='text-sm text-black/50'>Everything you need to know about buying and selling cars on LagosUsedCars.ng</p>
           </div>
            <div className="w-[90%] h-auto space-y-2 py-2 px-2 mx-auto lg:space-y-4 lg:w-150 lg:h-auto lg:py-4 lg:px-4 lg:m-auto">
           {faq.map((question) => (
