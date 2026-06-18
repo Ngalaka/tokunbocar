@@ -5,7 +5,10 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { FaRegEyeSlash } from 'react-icons/fa6';
 import { IoCarSportOutline, IoEyeSharp } from 'react-icons/io5';
-import { notifySuccess, notifyError, } from "@/lib/toast";
+import {
+  notifySuccess,
+  notifyError,
+} from "@/lib/toast";
 
 export default function Signin() {
   const [loading, setLoading] = useState(false);
@@ -26,22 +29,20 @@ export default function Signin() {
 
       alert("Form Submitted Successfully", data);
 
-      // Clear all form fields
       notifySuccess(
-        response.data.message ||
+        // response.data.message ||
         "Login Successful"
       );
-
+      //  Clear all form fields
       reset();
-    }
 
-
-    catch (error) {
+    } catch (error) {
       console.log(error);
        notifyError(
-        error.response?.data?.message ||
+        // error.response?.data?.message ||
           "Login Failed"
       );
+
     } finally {
       setLoading(false);
     }
