@@ -52,7 +52,7 @@ export default function Platform() {
         <div className="flex flex-col sm:flex-row gap-4">
 
           {/* Search Input */}
-          <div className="flex items-center w-full border border-black rounded-lg px-3">
+          <div className="flex items-center w-full border border-black/10 rounded-lg px-3">
             <input
               type="text"
               placeholder="Search"

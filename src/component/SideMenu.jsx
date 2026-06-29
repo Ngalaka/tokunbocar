@@ -77,7 +77,7 @@ export default function SideMenu() {
       {isNavOpen && (
         <div
           onClick={handleNavOpen}
-          className="fixed inset-0 bg-black/40 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/70 z-40 lg:hidden"
         />
       )}
 

@@ -3,14 +3,14 @@ import { pendingApprovals } from "@/lib/pendingApproval";
 
 export default function PendingAppro() {
   return (
-   <div className="w-full bg-white rounded-xl py-2">
+   <div className="w-full bg-white rounded-xl py-2 ">
   {/* Header */}
   <div className="flex gap-2 border-none md:flex-row md:justify-between md:items-center lg:gap-4 lg:border-b pb-5">
     <h1 className="text-xl md:text-2xl font-bold ">
       Pending Approvals
     </h1>
 
-    <button className=" font-medium hover:underline w-fit">
+    <button className=" font-medium hover:underline w-fit text-black/30">
       View All
     </button>
   </div>
@@ -19,7 +19,7 @@ export default function PendingAppro() {
   {/* Desktop view */}
   
 
-  <div className="hidden md:block mt-6">
+  <div className="hidden md:block mt-6 shadow-md">
     <table className="w-full">
       <thead>
         <tr className="text-left text-black/40">
@@ -31,7 +31,7 @@ export default function PendingAppro() {
         </tr>
       </thead>
 
-      <tbody>
+      <tbody className="text-black/50">
         {pendingApprovals.map((item) => (
           <tr
             key={item.id}
@@ -69,7 +69,7 @@ export default function PendingAppro() {
   {/* Mobile screen */}
  
 
-  <div className="md:hidden mt-6 space-y-5">
+  <div className="md:hidden mt-6 space-y-2 shadow-md">
     {pendingApprovals.map((item) => (
       <div
         key={item.id}
