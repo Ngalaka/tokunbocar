@@ -1,4 +1,4 @@
-"use client"
+ "use client"
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { RiCloseCircleLine } from 'react-icons/ri';
@@ -143,14 +143,14 @@ export default function BuyerSignUp() {
                 <input
                   type="text"
                   className="w-full h-auto py-2 lg:w-full border rounded-lg"
-                  {...register("fName", {
+                  {...register("firstName", {
                     required: "First name field is required",
                   })}
                 />
 
-                {errors.fName && (
+                {errors.firstName && (
                   <p className="text-red-500 text-sm">
-                    {errors.fName.message}
+                    {errors.firstName.message}
                   </p>
                 )}
               </div>
@@ -163,14 +163,14 @@ export default function BuyerSignUp() {
                 <input
                   type="text"
                   className="w-full  py-2 h-auto lg:w-full  border rounded-lg outline-none hover:outline-1"
-                  {...register("lName", {
+                  {...register("lastName", {
                     required: "Last name field is required",
                   })}
                 />
 
-                {errors.lName && (
+                {errors.lastName && (
                   <p className="text-red-500 text-sm">
-                    {errors.lName.message}
+                    {errors.lastName.message}
                   </p>
                 )}
               </div>
@@ -184,7 +184,7 @@ export default function BuyerSignUp() {
                   type="text"
                   className="w-full py-2 h-auto lg:w-full border rounded-lg outline-none hover:outline-1"
                   {...register("mobile", {
-                    required: "Mobile number field is required",
+                    required: "Mobile phone number field is required",
                   })}
                 />
 
@@ -202,7 +202,7 @@ export default function BuyerSignUp() {
                     type="checkbox"
                     className={`w-4 h-4 border py-2 border-black/40 outline-none ${errors.agree ? 'border-2 border-red-500' : ' border border-green-700'
                       }`}
-                    {...register("agree", {
+                    {...register("agreeTerm", {
                       required: "check on the rules",
                     })}
                   />
@@ -210,9 +210,9 @@ export default function BuyerSignUp() {
                     I agree to the terms and rules
                   </span>
                 </div>
-                {errors.agree && (
+                {errors.agreeTerm && (
                   <p className="text-red-500 text-sm">
-                    {errors.agree.message}
+                    {errors.agreeTerm.message}
                   </p>
                 )}
               </div>

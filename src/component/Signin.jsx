@@ -27,7 +27,7 @@ export default function Signin() {
 
     try {
 
-      alert("Form Submitted Successfully", data);
+      console.log("Form Submitted Successfully", data);
 
       notifySuccess(
         // response.data.message ||
@@ -105,7 +105,7 @@ export default function Signin() {
                       required: "Password field is required",
                       minLength: {
                         value: 12,
-                        message: "Password must be at least 8 characters",
+                        message: "Password must be at least 12 characters",
                       },
 
                     })}
@@ -129,8 +129,8 @@ export default function Signin() {
 
               <div className="w-[90%] mx-auto flex-col justify-start items-start py-4 lg:py-2 lg:mx-1 lg:w-full flex lg:flex-row lg:justify-between lg:items-center lg:gap-2 ">
                 <p>
-                  I don't have an Account
-                  <Link href="/signUp" className='px-2 text-blue-600  underline'>
+                  I dont have an Account
+                  <Link href="/sign-up" className='px-2 text-blue-600  underline'>
                     Sign Up
                   </Link>
                 </p>

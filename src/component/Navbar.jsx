@@ -2,7 +2,6 @@ import Link from 'next/link'
 import React from 'react'
 import { FaUser } from 'react-icons/fa6'
 import { IoCarSportOutline } from 'react-icons/io5'
-import { LuUsers } from 'react-icons/lu'
 import { TiStarburstOutline } from 'react-icons/ti'
 
 export default function Navbar() {

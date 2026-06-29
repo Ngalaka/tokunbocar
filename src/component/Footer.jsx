@@ -9,10 +9,10 @@ export default function Footer() {
   return (
     <>
        {/* footer */}
-        <div className="w-full h-auto md:w-1/2  lg:w-full  py-8">
+        <div className="w-full h-auto md:w-1/2  lg:w-full">
 
           {/* footer detail */}
-          <div className="w-full h-auto flex-col text-black justify-center items-center py-4 px-4  md:w-1/2  lg:w-full lg:m-auto lg:py-8 lg:px-16 flex lg:flex-row lg:justify-between lg:items-start lg:gap-8">
+          <div className="w-full h-auto flex-col text-black justify-center items-center py-4 px-4  md:w-1/2  lg:w-full lg:m-auto lg:py-2 lg:px-16 flex lg:flex-row lg:justify-between lg:items-start lg:gap-8">
             <div className="w-full gap-4  px-6 lg:w-[25%] h-auto flex flex-col justify-start items-start lg:gap-4">
               {/* logos  */}
               <p>LAGOS</p>

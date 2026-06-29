@@ -26,7 +26,7 @@ export default function SellerSignUp() {
      alert("Form Submitted Successfully", data);
       // Clear all form fields
       reset();
-    } catch (error) {
+    } catch (error) { 
       setLoading(false);
       console.log(error);
       
@@ -56,20 +56,40 @@ export default function SellerSignUp() {
 
               <div className='w-[90%] py-2 mx-auto lg:w-full '>
                 <label className=" block mb-2 font-medium">
-                  Name
+                  First name
                 </label>
 
                 <input
                   type="text" placeholder='Name'
                   className="w-full p-2 h-auto lg:w-full border rounded-lg"
-                  {...register("name", {
+                  {...register("FirstName", {
                     required: "Name field is required",
                   })}
                 />
 
-                {errors.name && (
+                {errors.FirstName && (
                   <p className="text-red-500 text-sm">
-                    {errors.name.message}
+                    {errors.FirstName.message}
+                  </p>
+                )}
+              </div>
+
+                   <div className='w-[90%] py-2 mx-auto lg:w-full '>
+                <label className=" block mb-2 font-medium">
+                  First name
+                </label>
+
+                <input
+                  type="text" placeholder='Name'
+                  className="w-full p-2 h-auto lg:w-full border rounded-lg"
+                  {...register("lastName", {
+                    required: "Name field is required",
+                  })}
+                />
+
+                {errors.lastName && (
+                  <p className="text-red-500 text-sm">
+                    {errors.lastName.message}
                   </p>
                 )}
               </div>
@@ -150,6 +170,48 @@ export default function SellerSignUp() {
               </div>
 
 
+               <div className='w-[90%] py-2 mx-auto lg:w-full '>
+                <label className=" block mb-2 font-medium">
+                  Mobile Number
+                </label>
+
+                <input
+                  type="text" placeholder='Name'
+                  className="w-full p-2 h-auto lg:w-full border rounded-lg"
+                  {...register("mobile", {
+                    required: "Business name field is required",
+                  })}
+                />
+
+                {errors.mobile && (
+                  <p className="text-red-500 text-sm">
+                    {errors.mobile.message}
+                  </p>
+                )}
+              </div>
+
+
+               <div className='w-[90%] py-2 mx-auto lg:w-full '>
+                <label className=" block mb-2 font-medium">
+                  Business Name
+                </label>
+
+                <input
+                  type="text" placeholder='Name'
+                  className="w-full p-2 h-auto lg:w-full border rounded-lg"
+                  {...register("busName", {
+                    required: "Business name field is required",
+                  })}
+                />
+
+                {errors.busName && (
+                  <p className="text-red-500 text-sm">
+                    {errors.busName.message}
+                  </p>
+                )}
+              </div>
+
+              
               <div className=" w-[90%] mx-auto lg:w-full l  flex flex-col justify-center items-center gap-2 py-2 ">
                 <button
                   type="submit"

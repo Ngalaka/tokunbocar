@@ -55,20 +55,41 @@ export default function Admin() {
 
               <div className='w-[90%] py-2 mx-auto lg:w-full '>
                 <label className=" block mb-2 font-medium">
-                  Full Name
+                  First name
                 </label>
 
                 <input
                   type="text" placeholder='Name'
                   className="w-full p-2 h-auto lg:w-full border rounded-lg"
-                  {...register("name", {
-                    required: "Name field is required",
+                  {...register("firstName", {
+                    required: "First name field is required",
                   })}
                 />
 
-                {errors.name && (
+                {errors.firstName && (
                   <p className="text-red-500 text-sm">
-                    {errors.name.message}
+                    {errors.firstName.message}
+                  </p>
+                )}
+              </div>
+
+
+              <div className='w-[90%] py-2 mx-auto lg:w-full '>
+                <label className=" block mb-2 font-medium">
+                  Last name
+                </label>
+
+                <input
+                  type="text" placeholder='Name'
+                  className="w-full p-2 h-auto lg:w-full border rounded-lg"
+                  {...register("lastName", {
+                    required: "Last name field is required",
+                  })}
+                /> 
+
+                {errors.lastName && (
+                  <p className="text-red-500 text-sm">
+                    {errors.lastName.message}
                   </p>
                 )}
               </div>
@@ -94,27 +115,7 @@ export default function Admin() {
                 )}
               </div>
 
-              <div className='w-[90%] py-2 mx-auto lg:w-full '>
-                <label className=" block mb-2 font-medium">
-                  Full Name
-                </label>
-
-                <input
-                  type="text" placeholder='phone number'
-                  className="w-full p-2 h-auto lg:w-full border rounded-lg"
-                  {...register("phone", {
-                    required: "Phone number field is required",
-                  })}
-                />
-
-                {errors.phone && (
-                  <p className="text-red-500 text-sm">
-                    {errors.phone.message}
-                  </p>
-                )}
-              </div>
-
-
+             
               <div className='w-[90%] py-2 mx-auto lg:w-full lg:mx-1'>
                 <label className="block  font-medium">
                   Password
@@ -164,47 +165,25 @@ export default function Admin() {
                 )}
               </div>
 
-
-              <div className='w-[90%] py-2 mx-auto lg:w-full lg:mx-1'>
-                <label className="block  font-medium">
-                   Role
-                </label>
-
-                <select  {...register("role")}>
-                  <option value="">Select Role</option>
-                  <option value="super-admin">Super Admin</option>
-                  <option value="manager">Manager</option>
-                  <option value="support">Support Staff</option>
-                </select>
-
-                {errors.role && (
-                  <p className="text-red-500 text-sm">
-                    {errors.role.message}
-                  </p>
-                )}
-              </div>
-
-
-                <div className='w-[90%] py-2 mx-auto lg:w-full '>
+               <div className='w-[90%] py-2 mx-auto lg:w-full '>
                 <label className=" block mb-2 font-medium">
-                  Admin ID
+                  Mobile Number
                 </label>
 
                 <input
-                  type="text" placeholder='Employee ID'
+                  type="text" placeholder='Name'
                   className="w-full p-2 h-auto lg:w-full border rounded-lg"
-                  {...register("adminid", {
-                    required: "Employee ID field is required",
+                  {...register("mobile", {
+                    required: "Business name field is required",
                   })}
                 />
 
-                {errors.adminid && (
+                {errors.mobile && (
                   <p className="text-red-500 text-sm">
-                    {errors.adminid.message}
+                    {errors.mobile.message}
                   </p>
                 )}
               </div>
-
 
               <div className='w-[90%] py-2 mx-auto lg:w-full '>
                 <label className=" block mb-2 font-medium">
@@ -214,18 +193,17 @@ export default function Admin() {
                 <input
                   type="password" placeholder='...................'
                   className="w-full p-2 h-auto lg:w-full border rounded-lg"
-                  {...register("accesscode", {
+                  {...register("accessCode", {
                     required: "Access code field is required",
                   })}
                 />
 
-                {errors.accesscode && (
+                {errors.accessCode && (
                   <p className="text-red-500 text-sm">
-                    {errors.accesscode.message}
+                    {errors.accessCode.message}
                   </p>
                 )}
               </div>
-
               
               <div className=" w-[90%] mx-auto lg:w-full l  flex flex-col justify-center items-center gap-2 py-2 ">
                 <button

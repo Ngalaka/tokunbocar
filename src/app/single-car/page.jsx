@@ -1,3 +1,4 @@
+"use client"
 import Carprice from '@/component/Carprice'
 import Carreport from '@/component/Carreport'
 import Sellerinformation from '@/component/Sellerinformation'
@@ -11,10 +12,15 @@ import { DiBrackets, DiDatabase, DiYii } from 'react-icons/di';
 import Listed from '@/component/Listed';
 import Paylater from '@/component/Paylater';
 import Similarcar from '@/component/Similarcar';
+import Footer from '@/component/Footer'
+import Navbar from '@/component/Navbar'
 
 export default function page() {
   return (
     <>
+    <div>
+           <Navbar/>
+        </div>
       <div className='w-full flex-col justify-center items-center lg:w-[95%] h-auto flex lg:flex-row lg:justify-center lg:items-center lg:gap-4 lg:mx-auto'>
         {/* Car informatiion */}
         <div className='w-full lg:w-[55%] h-auto'>
@@ -72,6 +78,9 @@ export default function page() {
       </div>
       <div>
         <Similarcar />
+      </div>
+      <div>
+         <Footer />
       </div>
     </>
   )
