@@ -1,8 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { IoShieldOutline } from "react-icons/io5";
 import { FaChevronLeft, FaBars } from "react-icons/fa";
+import { ImUpload } from "react-icons/im";
+import { GiFlatPlatform } from "react-icons/gi";
+import { LuLayoutDashboard } from "react-icons/lu";
+import { IoCarSportOutline } from "react-icons/io5";
+import { LuUsers } from "react-icons/lu";
+import { CgUserList } from "react-icons/cg";
+import { RiInformationOffFill } from "react-icons/ri";
+import { GrMoney } from "react-icons/gr";
 
 export default function SideMenu() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -14,27 +21,45 @@ export default function SideMenu() {
   const menuItems = [
     {
       id: 1,
-      title: "Dashboard",
-      path: "/",
-      icon: IoShieldOutline,
+      title: "Platform Overview",
+      path: "/platform",
+      icon: GiFlatPlatform,
     },
     {
       id: 2,
-      title: "Cars",
+      title: "Dealer Dashboard",
       path: "/cars",
-      icon: IoShieldOutline,
+      icon: LuLayoutDashboard,
     },
     {
       id: 3,
-      title: "Users",
-      path: "/users",
-      icon: IoShieldOutline,
+      title: "Upload Car",
+      path: "/upload",
+      icon:ImUpload,
     },
     {
       id: 4,
-      title: "Settings",
-      path: "/settings",
-      icon: IoShieldOutline,
+      title: "All users",
+      path: "/users",
+      icon: LuUsers,
+    },
+    {
+      id: 5,
+      title: "All listing",
+      path: "/listing",
+      icon: CgUserList,
+    },
+    {
+      id: 6,
+      title: "Enquiries",
+      path: "/enquiries",
+      icon: RiInformationOffFill,
+    },
+     {
+      id: 7,
+      title: "Finance Plans",
+      path: "/finance",
+      icon: GrMoney,
     },
   ];
 
@@ -70,22 +95,26 @@ export default function SideMenu() {
 
           ${
             isNavOpen
-              ? "translate-x-0 w-55"
-              : "-translate-x-full lg:translate-x-0 lg:w-40"
+              ? "translate-x-0 w-64"
+              : "-translate-x-full lg:translate-x-0 lg:w-60"
           }
         `}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-5 border-b border-blue-800">
+        <div className="flex items-center justify-between px-4 py-5 border-b  border-blue-800">
           <div className="flex items-center gap-3">
-            <IoShieldOutline size={24} />
-
+           
             {/* Show text only when sidebar is open */}
             <Link
               href="/"
               className={`${isNavOpen ? "block" : "hidden"} lg:block font-bold w-full`}
             >
-              Used-Cars
+              <h1 className="font-bold text-2xl">LAGOS</h1>
+              <div className="flex justify-start items-start gap-4">
+              <span><IoCarSportOutline size={20} /></span>
+              <span className="font-semibold text-sm">Used-Cars</span>
+              </div>
+
             </Link>
           </div>
 

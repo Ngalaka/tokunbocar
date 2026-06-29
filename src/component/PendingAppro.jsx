@@ -3,14 +3,14 @@ import { pendingApprovals } from "@/lib/pendingApproval";
 
 export default function PendingAppro() {
   return (
-   <div className="w-full bg-white rounded-xl py-4">
+   <div className="w-full bg-white rounded-xl py-2">
   {/* Header */}
   <div className="flex gap-2 border-none md:flex-row md:justify-between md:items-center lg:gap-4 lg:border-b pb-5">
-    <h1 className="text-xl md:text-2xl font-bold text-blue-600">
+    <h1 className="text-xl md:text-2xl font-bold ">
       Pending Approvals
     </h1>
 
-    <button className="text-blue-600 font-medium hover:underline w-fit">
+    <button className=" font-medium hover:underline w-fit">
       View All
     </button>
   </div>
@@ -22,7 +22,7 @@ export default function PendingAppro() {
   <div className="hidden md:block mt-6">
     <table className="w-full">
       <thead>
-        <tr className="text-left text-blue-900">
+        <tr className="text-left text-black/40">
           <th className="py-4 px-4">Car</th>
           <th className="py-4 px-4">Dealer</th>
           <th className="py-4 px-4">Price</th>
@@ -35,21 +35,20 @@ export default function PendingAppro() {
         {pendingApprovals.map((item) => (
           <tr
             key={item.id}
-            className="border-t hover:bg-gray-50 transition"
           >
-            <td className="py-5 px-4">{item.car}</td>
+            <td className="py-2 px-4">{item.car}</td>
 
-            <td className="py-5 px-4">{item.dealer}</td>
+            <td className="py-2 px-4">{item.dealer}</td>
 
-            <td className="py-5 px-4 font-semibold">
+            <td className="py-2 px-4 ">
               {item.price}
             </td>
 
-            <td className="py-5 px-4">
+            <td className="py-2 px-4">
               {item.submitted}
             </td>
 
-            <td className="py-5 px-4">
+            <td className="py-2 px-4">
               <div className="flex gap-3">
                 <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">
                   {item.approve}
