@@ -146,7 +146,7 @@ export default function Signin() {
                   disabled={loading}
                   className={`w-full h-auto p-2   lg:p-2 rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-gray-300 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
                 >
-                  {loading ? "Signing..." : "Sign up"}
+                  {loading ? "Login..." : "Login"}
                 </button>
               </div>
 
