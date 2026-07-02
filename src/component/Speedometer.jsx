@@ -14,7 +14,7 @@ export default function Speedometer() {
           {/* speedometer image */}
           <div className="w-full h-auto flex flex-col gap-8 py-8 lg:flex-row justify-center items-center lg:px-8 lg:py-2 lg:gap-4 text-white">
             <div>
-              <Image src="/image/carspeedometer.jpeg" width={300} height={300} alt="Lagos used cars" className="w-full h-auto lg:h-30 object-cover" />
+              <Image src="/image2/car8.jpg" width={300} height={300} alt="Lagos used cars" className="w-full h-auto lg:h-30 object-cover" />
               <div className="w-full h-auto flex flex-col justify-center items-center gap-2 bg-blue-700">
                 <p className="text-center text-sm text-white px-4 font-bold">How to spot a good Tokunbo Car in Lagos</p>
                 <div className="flex flex-row items-center justify-center gap-2">
@@ -27,7 +27,7 @@ export default function Speedometer() {
             </div>
 
             <div>
-              <Image src="/image/carspeedometer.jpeg" width={300} height={300} alt="Lagos used cars" className="w-full h-auto lg:h-30 object-cover" />
+              <Image src="/image2/car2.jpg" width={300} height={300} alt="Lagos used cars" className="w-full h-auto lg:h-30 object-cover" />
               <div className="w-full h-auto flex flex-col justify-center items-center gap-2 bg-blue-700">
                 <p className="text-center text-sm text-white  px-4 font-bold">How to spot a good Tokunbo Car in Lagos</p>
                 <div className="flex flex-row items-center justify-center gap-2">
@@ -40,7 +40,7 @@ export default function Speedometer() {
             </div>
 
             <div>
-              <Image src="/image/carspeedometer.jpeg" width={300} height={300} alt="Lagos used cars" className="w-full h-auto lg:h-30 object-cover" />
+              <Image src="/image2/car12.jpg" width={300} height={300} alt="Lagos used cars" className="w-full h-auto lg:h-30 object-cover" />
               <div className="w-full h-auto flex flex-col justify-center items-center gap-2 bg-blue-700">
                 <p className="text-center text-sm text-white  px-4">How to spot a good Tokunbo Car in Lagos</p>
                 <div className="flex flex-row items-center justify-center gap-2">
