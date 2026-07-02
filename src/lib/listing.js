@@ -12,7 +12,7 @@ export const listing = [
     enquiries:3,
     listedat: "2 days ago",
     status: "Active",
-    action:"Remove",
+    action:"Approve",
     view: "View"
    
   },

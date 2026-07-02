@@ -74,10 +74,14 @@ export default function AllListing() {
                     {item.view}
                   </span>
                   <span
-                    className={`text-right font-medium ${
+                    className={`text-right font-medium cursor-pointer ${
                       item.action === "Approve"
                         ? "text-green-600"
-                        : "text-red-600"
+                         : item.action === "Remove"
+                         ? "text-yellow-500"
+                        : item.action === "Reject"
+                          ? "text-blue-600"
+                          : "text-gray-700"
                     }`}
                   >
                     {item.action}
@@ -90,7 +94,7 @@ export default function AllListing() {
       </div>
 
       {/* Mobile Screen */}
-      <div className="block md:hidden mt-6 space-y-4">
+      <div className="w-full block md:hidden mt-6 space-y-4">
         {listing.map((item) => (
           <div
             key={item.id}
@@ -169,7 +173,7 @@ export default function AllListing() {
                 </span>
 
                 <span className="flex-1 text-right wrap-break-word">
-                  {item.listed}
+                  {item.listedat}
                 </span>
               </div>
 
@@ -182,7 +186,7 @@ export default function AllListing() {
                 <span
                   className={`flex-1 text-right font-medium ${
                     item.status === "Active" ? "text-green-600" : "text-red-600"
-                  }`}
+                  } cursor-pointer`}
                 >
                   {item.status}
                 </span>
@@ -190,17 +194,18 @@ export default function AllListing() {
 
               {/* Action */}
               <div className="flex items-start">
-                <span className="w-24 shrink-0 text-sm font-semibold text-gray-500">
-                  Action
-                </span>
+                <div className="flex justify-center items-center gap-2">
 
-                <div className="flex-1 flex justify-end gap-2 flex-wrap">
-                  <button className="px-3 py-1 rounded-md bg-blue-500 text-white text-xs">
-                    Edit
+                  <button className="px-2 py-1 rounded-md bg-green-700 text-white text-xs">
+                    Approve
                   </button>
 
-                  <button className="px-3 py-1 rounded-md bg-red-500 text-white text-xs">
-                    Delete
+                  <button className="px-2 py-1 rounded-md bg-red-500 text-white text-xs">
+                    Reject
+                  </button>
+
+                  <button className=" px-2 py-1 rounded-md bg-red-800 text-white text-xs">
+                    Remove
                   </button>
                 </div>
               </div>
