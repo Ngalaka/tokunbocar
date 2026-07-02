@@ -84,7 +84,7 @@ export default function Navbar() {
 
     {/* Sell Car Button */}
     <Link
-      href="/sell-car"
+      href="/platform"
       className="bg-blue-900 px-5 py-2 rounded-lg text-white text-sm hover:bg-blue-700 transition"
     >
       Sell Your Car

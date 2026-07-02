@@ -39,13 +39,13 @@ export default function SideMenu() {
     },
     {
       id: 4,
-      title: "All users",
-      path: "/users",
+      title: "All Users",
+      path: "/user-list",
       icon: LuUsers,
     },
     {
       id: 5,
-      title: "All listing",
+      title: "All Listing",
       path: "/listing",
       icon: CgUserList,
     },
