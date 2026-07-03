@@ -1,4 +1,3 @@
-import { finance } from "@/lib/finance";
 import { listing } from "@/lib/listing";
 import Image from "next/image";
 import React from "react";
@@ -28,7 +27,7 @@ export default function AllListing() {
                 <td className="flex  justify-start items-start gap-4 py-2">
                   <Image
                     src={item.carimage}
-                    width={20}
+                    width={20} 
                     height={20}
                     alt={item.cartitle}
                     className="w-10 h-10 object-cover"

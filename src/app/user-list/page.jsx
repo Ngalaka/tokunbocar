@@ -8,6 +8,7 @@ import { GiSellCard } from "react-icons/gi";
 import UserList from "@/component/UserList";
 import Platform from "@/component/Platform";
 import UserListMenu from "@/component/UserListMenu";
+import AllUserDealer from "@/component/AllUserDealer";
 
 export default function page() {
   return (
@@ -27,6 +28,9 @@ export default function page() {
          <div>
             <UserList/>
          </div>
+
+         {/* Deal section */}
+         <AllUserDealer/>
         </div>
       </div>
     </>
