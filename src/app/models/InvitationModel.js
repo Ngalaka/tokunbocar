@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 const invaitationSchema = new mongoose.Schema({
-userId: {
+createdFor: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
 },
@@ -37,8 +37,7 @@ usedAt: {
 
 },{ timestamps: true });
 
-const Invitation =
-    mongoose.models.Invitation ||
-    mongoose.model("Invitation", invaitationSchema);
+const InvitationModel = mongoose.models.invitation ||
+    mongoose.model("invitation",invaitationSchema);
 
-export default Invitation;
+export default InvitationModel;
