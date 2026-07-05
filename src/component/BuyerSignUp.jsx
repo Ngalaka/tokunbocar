@@ -196,7 +196,7 @@ export default function BuyerSignUp() {
               </div>
 
 
-              <div className='w-full py-2 lg:w-full'>
+              {/* <div className='w-full py-2 lg:w-full'>
                 <div className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="checkbox"
@@ -215,7 +215,7 @@ export default function BuyerSignUp() {
                     {errors.agreeTerm.message}
                   </p>
                 )}
-              </div>
+              </div> */}
 
 
               <div className=" w-[90%] mx-auto lg:w-full l  flex flex-col justify-center items-center gap-2 py-2 ">

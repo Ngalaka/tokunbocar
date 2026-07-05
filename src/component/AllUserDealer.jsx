@@ -63,10 +63,10 @@ export default function AllUserDealer() {
   return (
     <>
       {/* Desktop view */}
-      <div className="hidden md:block mt-6 w-full ">
-        <div>
+      <div className="hidden md:block mt-6 w-full  ">
+        <div className="flex justify-between items-center gap-2 px-4">
           <h1 className="font-bold">All Dealers</h1>
-          <span>View all</span>
+          <span className="text-black/40">View all</span>
         </div>
 
         <table className="w-full">
@@ -92,7 +92,7 @@ export default function AllUserDealer() {
                   className="bg-white shadow-md rounded-xl p-4 hover:shadow-lg transition-shadow"
                 >
                   <td className="flex  justify-start items-start gap-4 py-2">
-                    <Icon size={28} className="text-blue-800" />
+                    <Icon size={20} className="text-blue-800" />
                     <div>
                       <span className="text-sm">{item.dealer}</span>
                       <span className="text-sm">{item.email}</span>
@@ -165,7 +165,7 @@ export default function AllUserDealer() {
               {/* Top Section */}
               <div className="flex justify-between items-center gap-2 pb-4 py-2">
                 <div className="bg-blue-50 p-2 rounded-full flex-shrink-0">
-                  <Icon size={24} className="text-blue-700" />
+                  <Icon size={20} className="text-blue-700" />
                 </div>
 
                 <div className="min-w-0 flex-1">

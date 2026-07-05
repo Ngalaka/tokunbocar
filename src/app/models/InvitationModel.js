@@ -1,45 +1,44 @@
+import mongoose from "mongoose";
+const invaitationSchema = new mongoose.Schema({
+userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+},
+email: {
+    type: String,
+    required: true
+},
 
-import mongoose from "mongoose"
-const invitationSchema = new mongoose.Schema({
-    createdFor: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "user"
-    },
-    email: {
-        type: String,
-        lowercase: true,
-        required: true
-    },
+code: {
+    type: String,
+    required: true,
+},
 
-    otp: {
-        type: String,
-        required: true
-    },
+isUsed: {
+    type: Boolean,
+    default: false
+},
 
-    isUsed: {
-        type: Boolean,
-        default: false
-    },
+isExpired: {
+    type: Boolean,
+    default: false
+},
 
-    isExpired: {
-        type: Boolean,
-        default: false
-    },
+expirationDate: {
+    type: Date,
+    default: () => new Date(Date.now() + 2 * 60 * 60 * 1000) // Set expiration date to 24 hours from now
+},
 
-    expiresAt: {
-        type: Date,
-        // Date.now is in milliseconds, so we add 10 minutes (10 * 60 * 1000)   
-    },
-    
-    usedAt: {
-        type: Date,
-    }
-
-}, { timestamps: true })
+usedAt: {
+    type: Date,
+    default: null
+},
 
 
-const InvitationModel = mongoose.models.invitation ||
-    mongoose.model("invitation", invitationSchema)
+},{ timestamps: true });
 
-export default InvitationModel;
+const Invitation =
+    mongoose.models.Invitation ||
+    mongoose.model("Invitation", invaitationSchema);
 
+export default Invitation;

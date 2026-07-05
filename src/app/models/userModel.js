@@ -1,30 +1,6 @@
 import mongoose from "mongoose";
-const userSchema = new mongoose.Schema({
-  // users schema for buyer signup schema
 
-  // common fields
-  firstName: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-
-  lastName: {
-    type: String,
-    required: true, 
-    trim: true,
-    
-  },
-
-
-  mobile: {
-    type: String,
-    required:true,
-    trim: true,
-  },
-
-
-
+const userSchema = new mongoose.Schema ({
   email: {
     type: String,
     required: true, 
@@ -32,28 +8,38 @@ const userSchema = new mongoose.Schema({
     trim: true,
     lowercase: true,
   },
-
-
   password: {
     type: String,
-    required: true, 
-  },
-
-  userRole: {
-    type: String,
-    enum: ["buyer", "seller", "admin"],
     required: true,
-    default: "buyer",
+    minlength: 4
+  },
+  role: {
+    type: String,
+    enum: ['buyer', 'seller', 'admin'],
+    default: 'buyer'
   },
 
-  isEmailVerified: {
-    type: Boolean,
-    default: false,
+  firstName: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  lastName: { 
+    type: String,
+    required: true,
+    trim: true
   },
 
-}, {timestamps: true,});
+  mobile: {
+    type: String,
+    required: true,
+    trim: true
+  }
 
+}, { timestamps: true });
 
-const User =mongoose.models.User || mongoose.model("User", userSchema)
+const User =
+    mongoose.models.User ||
+    mongoose.model("User", userSchema);
 
 export default User;

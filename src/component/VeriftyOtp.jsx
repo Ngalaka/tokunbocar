@@ -1,11 +1,17 @@
 "use client"
+import Image from 'next/image'
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { IoCarSportOutline, IoEyeSharp } from 'react-icons/io5';
-import { notifySuccess, notifyError, } from "@/lib/toast";
+import {
+  notifySuccess,
+  notifyError,
+} from "@/lib/toast";
 
 export default function VeriftyOtp() {
+  const [loading, setLoading] = useState(false);
+ 
   // destructure useForm to get register, handleSubmit, errors, and reset functions
   const {
     register,
@@ -31,16 +37,24 @@ export default function VeriftyOtp() {
 
     } catch (error) {
       console.log(error);
-      notifyError(
+       notifyError(
         // error.response?.data?.message ||
-        "Login Failed"
+          "Login Failed"
       );
+
+    } finally {
+      setLoading(false);
     }
   };
   return (
     <>
-      <div className='w-full flex-col justify-center items-center  lg:w-[90%] lg:h-auto lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-16 lg:mx-auto'>
-   
+      <div className='w-full flex-col justify-center items-center  lg:w-[90%] lg:h-auto lg:flex lg:flex-row lg:justify-between lg:items-center lg:gap-16 lg:mx-auto'>
+        {/* Car image */}
+        <div className='w-full py-4 lg:w-[50%] h-auto lg:py-1'>
+          <Image src="/image2/car13.jpg" width={300} height={300} alt='Car logo' className='w-full h-auto  lg:w-full lg:h-[90vh] object-cover' />
+        </div>
+
+
         {/*Car login form  */}
         <div className='w-full lg:w-[50%] h-auto shadow-md '>
           <div className='w-full lg:w-50 mx-auto h-auto flex flex-col justify-start items-start text-center py-2'>
@@ -54,37 +68,16 @@ export default function VeriftyOtp() {
 
           {/* form  */}
           <div className='py-8 w-[80%] mx-auto'>
-            <h1 className='w-full text-2xl text-center lg:w-100 font-semibold lg:text-3xl lg:mx-auto text-blue-800 py-2 px-2'>Verify your opt</h1>
+            <h1 className='w-full text-2xl text-center lg:w-100 font-semibold lg:text-3xl lg:mx-auto text-blue-800 py-2 px-2'>Verify your account</h1>
 
             <form action="" onSubmit={handleSubmit(onSubmit)}>
-
-              <div className='w-[90%] py-2 mx-auto lg:w-full '>
-                <label className=" block mb-2 font-medium">
-                  Otp
-                </label>
-
-                <input
-                  type="text" placeholder='enter your otp codes'
-                  className="w-full p-2 h-auto lg:w-full border rounded-lg"
-                  {...register("opt", {
-                    required: "Otp field is required",
-                  })}
-                />
-
-                {errors.opt && (
-                  <p className="text-red-500 text-sm">
-                    {errors.opt.message}
-                  </p>
-                )}
-              </div>
-
               <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
                 <label className=" block mb-2 font-medium">
                   Email
                 </label>
 
                 <input
-                  type="email"
+                  type="email" placeholder='enter your email'
                   className="w-full p-2 h-auto lg:w-full border lg:p-3 rounded-lg"
                   {...register("email", {
                     required: "Email field is required",
@@ -98,24 +91,52 @@ export default function VeriftyOtp() {
                 )}
               </div>
 
+              <div className='w-[90%] py-2 mx-auto lg:w-full lg:py-2 lg:mx-1'>
+                <label className="block mb-2 font-medium">
+                  User OTP
+                </label>
+
+                <div className="border border-black  px-2 outline-none hover:outline-1 rounded-lg placeholder:px-3 text-sm flex justify-between items-center">
+                  <input
+                    type="text" name='otp' placeholder='enter your otp'
+                    className="w-full p-2 h-auto lg:w-full outline-none"
+                    {...register("otp", {
+                      required: "OTP field is required",
+                     
+                    })}
+                  />
+                 
+                </div>
+
+                {errors.otp && (
+                  <p className="text-red-500 text-sm py-1">
+                    {errors.otp.message}
+                  </p>
+                )}
+              </div>
+
+
+
+              <div className="w-[90%] mx-auto flex-col justify-start items-start py-4 lg:py-2 lg:mx-1 lg:w-full flex lg:flex-row lg:justify-between lg:items-center lg:gap-2 ">
+                <p>
+                  verify your account if you have an account, please
+                  <Link href="/sign-in" className='px-2 text-blue-600  underline'>
+                    sign in
+                  </Link>
+                </p>
+
+              </div>
+
               <div className=" w-[90%] mx-auto lg:w-full l  flex flex-col justify-center items-center gap-2 py-2 ">
                 <button
                   type="submit"
-                  className="w-full h-auto p-2 lg:p-2 rounded-lg text-white lg:w-full lg:auto mx-auto "
+                  disabled={loading}
+                  className={`w-full h-auto p-2   lg:p-2 rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-gray-300 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
                 >
-                  Reset
+                  {loading ? "Verifying..." : "Verify OTP"}
                 </button>
               </div>
 
-
-              <div className="w-[90%] mx-auto flex-col justify-start items-start py-4 lg:py-2 lg:mx-1 lg:w-full flex lg:flex-row lg:justify-center lg:items-center lg:gap-2 ">
-                <p>
-                  Goback to login
-                  <Link href="/sign-in" className='px-2 text-blue-600  underline'>
-                    Login
-                  </Link>
-                </p>
-              </div>
             </form>
           </div>
 
