@@ -93,24 +93,24 @@ export default function VeriftyOtp() {
 
               <div className='w-[90%] py-2 mx-auto lg:w-full lg:py-2 lg:mx-1'>
                 <label className="block mb-2 font-medium">
-                  User OTP
+                  User CODE
                 </label>
 
                 <div className="border border-black  px-2 outline-none hover:outline-1 rounded-lg placeholder:px-3 text-sm flex justify-between items-center">
                   <input
-                    type="text" name='otp' placeholder='enter your otp'
+                    type="text" name='code' placeholder='enter your code'
                     className="w-full p-2 h-auto lg:w-full outline-none"
-                    {...register("otp", {
-                      required: "OTP field is required",
+                    {...register("code", {
+                      required: "CODE field is required",
                      
                     })}
                   />
                  
                 </div>
 
-                {errors.otp && (
+                {errors.code && (
                   <p className="text-red-500 text-sm py-1">
-                    {errors.otp.message}
+                    {errors.code.message}
                   </p>
                 )}
               </div>

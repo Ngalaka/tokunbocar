@@ -2,7 +2,7 @@
 import nodemailer from "nodemailer";
 
 // Function to send OTP via email using Nodemailer
-export const sendMail = async (email, otp) => {
+export const sendMail = async (email, code) => {
   try {
     // Create Nodemailer transporter
     const transporter = nodemailer.createTransport({
@@ -20,12 +20,12 @@ export const sendMail = async (email, otp) => {
     // Beautiful HTML template
     const htmlTemplate = `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                <h2>Welcome to Find Home</h2>
-                <p>your otp to verify your email is  .</p>
+                <h2>Welcome to TokunboCar verification code</h2>
+                <p>your code to verify your email is  .</p>
              
                 <p>The Invitation Code:</p>
                 <h3 style="background-color: #f0f0f0; padding: 15px; text-align: center;">
-                ${otp}
+                ${code}
                 </h3>
                
             </div>
@@ -35,7 +35,7 @@ export const sendMail = async (email, otp) => {
     const mailOptions = {
       from:  process.env.EMAIL_ADDRESS,
       to: email,
-      subject: "Your OTP Code",
+      subject: "Your Invitation Code",
       html: htmlTemplate,
     };
 
