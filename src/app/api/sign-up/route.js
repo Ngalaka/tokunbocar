@@ -1,68 +1,71 @@
 import InvitationModel from "@/app/models/InvitationModel";
 import User from "@/app/models/userModel";
 import connectToDb from "@/lib/connection";
-import { generateInvitationCode } from "@/lib/helpers";
+import { generateInvitationCode } from "@/lib/generateInviteCode";
 import { sendMail } from "@/lib/send-mail";
 import bcrypt from "bcryptjs";
 
 export const POST = async (req) => {
-  // deserialize the request body to get the user data
-  const { email, password, firstName, lastName, mobile } = await req.json();
+  // destructure the request body to get the user data
+  const { firstName, lastName, email, password, mobile } = await req.json();
 
-  // validate the user data
-  if (!email || !password || !firstName || !lastName || !mobile) {
-    return Response.json({error: "Missing required fields- fullname or email or password or mobile "},{ status: 400 });
+  if (!firstName || !lastName || !email || !password || !mobile) {
+    return Response.json(
+      { error: "Missing required fields- firstName or lastName or email or password or mobile" },{ status: 400 });
   }
-
+  // store in the data
   try {
-    // store the user data in the database
+    // estbalish database connection
     await connectToDb();
-    const existingUser = await User.findOne({ email });
-     // when the field in the db does no match the body from the request,
-        //  we can use the field name in the db as the key and the value from the body as the value in the findOne method
-        // const existingUser = await User.findOne({ userEmail:email });
 
+    // check if user exists with the email
+    const existingUser = await User.findOne({ email });
+    // when the field in the db does no match the body from the request,
+    //  we can use the field name in the db as the key and the value from the body as the value in the findOne method
+    // const existingUser = await User.findOne({ userEmail:email });
     if (existingUser) {
-      return Response.json({ error: "User already exists" }, { status: 400 });
+      return Response.json({ message: "User already exists" }, { status: 400 });
     }
 
     if (!existingUser) {
-      // hash the password before storing it in the database
-      const salt = await bcrypt.genSaltSync(16);
+      // hash the password before storing in the database
+      const salt = bcrypt.genSaltSync(16);
       const hashedPassword = await bcrypt.hash(password, salt);
-
-       const expiresAt= new Date( Date.now() +30 *60 *1000);
-      // create new user instance
-      const newUser = new User({
-        email,
-        password: hashedPassword,
+      // create a new user
+      // invitation expiration time
+      const expiresAt = new Date(Date.now() + 10 * 60 * 1000);
+      
+      const newUser = await User.create({
         firstName,
         lastName,
+        email,
+        password: hashedPassword,
         mobile,
       });
 
       if (!newUser) {
         return Response.json(
-          { error: "Failed to create user" },
+          { message: "Failed to create user" },
           { status: 500 },
         );
       }
-
-      //    send otp to the user email for verification
-      const code = generateInvitationCode();
-
-      await sendMail(email, code);
-
+      // send otp
+      const otp = generateInvitationCode();
+      await sendMail(email, otp);
+      // store invite token (otp) in otp ta ble
       await InvitationModel.create({
         createdFor: newUser._id,
         email: newUser.email,
-        code,
+        otp,
         expiresAt
       });
-      return Response.json({ message: "User created successfully", data: newUser }, { status: 201 });
+      return Response.json(
+        { message: "User registered successfully", newUser },
+        { status: 201 },
+      );
     }
   } catch (error) {
-    console.error("Error occurred while signing up:", error);
-    return Response.json({ error: "Error occurred while signing up" },{ status: 500 });
+    console.error("Error during user registration:", error);
+    return Response.json({ error: "Server Error" }, { status: 500 });
   }
 };

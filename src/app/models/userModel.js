@@ -1,8 +1,7 @@
+
 import mongoose from "mongoose";
-
 const userSchema= new mongoose.Schema({
-
- firstName:{
+    firstName:{
         type:String,
         required:true,
         trim:true
@@ -13,8 +12,8 @@ const userSchema= new mongoose.Schema({
     required: true,
     trim: true
   },
-  
-   email:{
+
+    email:{
     type:String,
     required:true,
     unique:true,
@@ -22,7 +21,6 @@ const userSchema= new mongoose.Schema({
     trim:true
     },
 
- 
     password:{
         type:String,
         required:true,
@@ -30,7 +28,14 @@ const userSchema= new mongoose.Schema({
     
     },
 
-   isEmailVerified:{
+     mobile: {
+    type: String,
+    required: true,
+    trim: true
+  },
+
+
+    isEmailVerified:{
         type:Boolean,
         default:false
     },
@@ -39,17 +44,38 @@ const userSchema= new mongoose.Schema({
         type:String,
         enum:["buyer", "seller", "admin"],
         default:"buyer"
-    },
-
-    mobile: {
-    type: String,
-    required: true,
-    trim: true
-  }
-
+    }
 }, {timestamps:true})
 
 const User=mongoose.models.user 
 || mongoose.model("user", userSchema)
 
  export default User;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+   
+  
+
+ 
+   
+
+
+   
