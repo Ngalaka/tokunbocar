@@ -1,5 +1,4 @@
-import { carLogos } from '@/lib/carLogos'
-import { typeCar } from '@/lib/typeCar'
+"use client"
 import Image from 'next/image'
 import React from 'react'
 import { IoIosArrowRoundForward } from 'react-icons/io'
@@ -10,6 +9,99 @@ import "swiper/css/navigation";
 import "swiper/css/pagination"
 
 export default function FeatureCar() {
+  const typeCar = [
+    {
+        id: 1,
+       name: "Ford Cars in Nigeria",
+       logo: "/image2/car24.jpg",
+      },
+
+      {
+        id: 2,
+         name: "Honda Cars in Nigeria",
+       logo: "/image2/car25.jpg",
+      },
+
+      {
+        id: 3,
+        name: "Audic Cars in Nigeria",
+       logo: "/image2/car26.jpg",
+      },
+
+      {
+        id: 4,
+        name: "Toyota Cars in Nigeria",
+       logo: "/image2/car2.jpg",
+      },
+
+      {
+        id: 5,
+         name: "Nissan Cars in Nigeria",
+       logo: "/image2/car28.jpg",
+      },
+
+      {
+        id: 6,
+        name: "Benz Cars in Nigeria",
+       logo: "/image2/car29.jpg",
+      },
+
+       {
+        id: 7,
+        name: "BMW Cars in Nigeria",
+       logo: "/image2/car29.jpg",
+      },
+]
+   const carLogos = [
+  {
+    id: 1,
+    name: "Ford",
+    logo: "/image2/carlogo.jpg",
+    dealer: "Ford Cars in Nigeria"
+  },
+
+  {
+    id: 2,
+    name: "Honda",
+    logo: "/image2/carlogo2.jpg",
+    dealer: "Honda Cars in Nigeria"
+  },
+
+  {
+    id: 3,
+    name: "Audic",
+    logo: "/image2/carlogo4.jpg",
+    dealer: "Audic Cars in Nigeria"
+  },
+
+  {
+    id: 4,
+    name: "Toyota",
+    logo: "/image2/carlogo1.jpg",
+    dealer: "Toyota Cars in Nigeria"
+  },
+
+  {
+    id: 5,
+    name: "Nissan",
+    logo: "/image2/carlogo8.jpg",
+    dealer: "Nissan Cars in Nigeria"
+  },
+
+  {
+    id: 6,
+    name: "Benz",
+    logo: "/image2/carlogo6.jpg",
+    dealer: "Benz Cars in Nigeria"
+  },
+
+  {
+    id: 7,
+    name: "BMW",
+    logo: "/image2/carlogo9.jpg",
+    dealer: "BMW Cars in Nigeria"
+  },
+]
   return (
     <>
       {/* Browse Car by Brand */}

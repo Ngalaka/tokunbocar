@@ -13,7 +13,7 @@ export default function page() {
         </div>
 
         {/* Platfor page */}
-        <div className="w-[70%] p-4 ">
+        <div className="w-full lg:w-[70%] p-4 ">
           <CarSaleUpload/>
         </div>
       </div>

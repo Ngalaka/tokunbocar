@@ -1,11 +1,23 @@
 "use client"
-import { carcomponent } from '@/lib/carcomponent'
 import React from 'react'
 import { BiAbacus, BiBrightnessHalf, BiColor } from 'react-icons/bi'
 import { CiBoxes, CiCoffeeCup, CiKeyboard, CiPen } from 'react-icons/ci'
 import { DiJoomla } from 'react-icons/di'
 
 export default function Carcomponent() {
+   const carcomponent =[
+  {
+    id:1,
+    year: 2019,
+    mile:47000,
+    fuel:"Petrol",
+    engine: "2.5L V4",
+    colour: "Pearl White",
+    door: "4 doors",
+    seat: "5 Seats",
+    imported: "USA",
+  },
+];
   return (
     <>
       <div className='w-full h-auto px-4'>

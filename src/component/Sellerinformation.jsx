@@ -1,10 +1,20 @@
-import { carattribute } from '@/lib/carattribute';
-import { sellerinform } from '@/lib/sellerinform';
+"use client"
 import React from 'react'
 import { FaRegStar } from 'react-icons/fa';
 import { IoCheckmarkDoneCircleOutline } from 'react-icons/io5';
 
 export default function Sellerinformation() {
+   const sellerinform =[
+  {
+    id:1,
+    sellername: "Ngalaka Gift", 
+    shipping_speed: "Excellent",
+    quality_score: "Excellent",
+    rating: "Good",
+    cars_listed: 32,
+    response_rate: 100,
+  },
+];
 
   return (
     <>

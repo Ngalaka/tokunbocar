@@ -1,8 +1,28 @@
-import { carattribute } from '@/lib/carattribute'
-import { carprice } from '@/lib/carprice'
+"use client"
 import React from 'react'
 
 export default function Carprice() {
+   const carattribute =[
+  {
+    id:1,
+    type: "Tokunbo",
+    model: "Sadan",
+    pplstype: "Petrol",
+    brand: "Automatic",
+    status: "Verified",
+    location: "Lagos Lekki",
+  },
+];
+
+const carprice = [
+{
+  id:1,
+  year: "2018",
+  price: 18500000,
+  discount: 2100000,
+  carname: "Toyota camry SE"
+}
+];
   return (
     <>
       <div>

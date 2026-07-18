@@ -5,6 +5,7 @@ import { FiPlus } from 'react-icons/fi'
 import { IoIosSearch } from 'react-icons/io'
 
 export default function Finance() {
+  
     const [loading, setLoading] = useState(false);
 
      // destructure useForm to get register, handleSubmit, errors, and reset functions

@@ -1,8 +1,16 @@
 "use client"
-import { listeddetails } from '@/lib/listeddetails'
 import React from 'react'
 
 export default function Listed() {
+ const listeddetails =[
+{
+  id:1,
+  listed: "2 days ago",
+  listed_id: "#LUC-2026-00481",
+  location: "Lekki Phase 1, Lagos",
+  views: 342,
+},
+]
   return (
     <>
       <div className='w-full px-2 py-8 lg:w-full h-auto lg:px-4'>
