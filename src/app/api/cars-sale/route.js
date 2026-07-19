@@ -6,19 +6,19 @@ import { authenticateRequest } from "@/lib/verify-token";
 
 export const POST  = async (req) =>{
 
-    //  // check for authentication
-    // const authResult = authenticateRequest(req);
-    // console.log("Authentication result:", authResult);
-    // if (authResult.error) {
+     // check for authentication
+    const authResult = authenticateRequest(req);
+    console.log("Authentication result:", authResult);
+    if (authResult.error) {
 
-    //     return authResult.error;
-    // }
+        return authResult.error;
+    }
 
-    // // check if the user is an admin or seller
-    // const roleResult = authorizeRoles(authResult, ["admin", "seller"]);
-    // if (roleResult) {
-    //     return roleResult;
-    // }
+    // check if the user is an admin or seller
+    const roleResult = authorizeRoles(authResult, ["admin", "seller"]);
+    if (roleResult) {
+        return roleResult;
+    }
     
         // Handle POST request
     // destructure the request body to get the property details

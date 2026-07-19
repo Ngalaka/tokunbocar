@@ -7,7 +7,7 @@ export const sendMail = async (email, code) => {
     // Create Nodemailer transporter
     const transporter = nodemailer.createTransport({
       service:"gmail",
-      port: 562,
+      port: 465,
       auth: {
         user: process.env.EMAIL_ADDRESS,
         pass: process.env.EMAIL_APP_PASSWORD,

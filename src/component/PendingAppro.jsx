@@ -1,6 +1,5 @@
 import React from "react";
-import { pendingApprovals } from "@/lib/pendingApproval";
-
+// import { pendingApprovals } from "@/lib/pendingApproval";
 export default function PendingAppro() {
   // lib/pendingApproval.js
 
