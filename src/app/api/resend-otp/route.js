@@ -28,7 +28,7 @@ export const POST = async (req) => {
         invitationUser.CreatedAt = Date.now()
         await invitationUser.save()
         sendMail(email, otp)
-        return Response.json({ message: "OTP resent successfully" }, { status: 200 })
+        return Response.json({ message: "OTP resent successfully", invitationUser  }, { status: 200 })
 
     }
 
