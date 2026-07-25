@@ -5,14 +5,21 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { FaRegEyeSlash } from 'react-icons/fa6';
 import { IoCarSportOutline, IoEyeSharp } from 'react-icons/io5';
+import axios from 'axios';
+import {useRouter } from 'next/navigation';
+
 import {
   notifySuccess,
   notifyError,
 } from "@/lib/toast";
 
+
 export default function Signin() {
+
+   const router = useRouter()
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
   // destructure useForm to get register, handleSubmit, errors, and reset functions
   const {
     register,
@@ -26,6 +33,29 @@ export default function Signin() {
     setLoading(true);
 
     try {
+
+      const res = await axios.post('/api/sign-in', data)
+
+        // store token in local storage
+        // remember this is not the production way to go
+        // storing token in cookies is the better approach
+        localStorage.setItem('token', res.data.data.token)
+
+        // if the user is a buyer, route to the buyer's dashboard
+        if (res.data.data.userRole === "buyer") {
+          // route to dashbaord
+          router.push('/')
+        }
+
+        else if (res.data.data.userRole === "seller") {
+          // route to seller's dashboard
+          router.push('/single-car')
+        }
+
+        else if (res.data.data.userRole === "admin") {
+          // route to admin dashboard
+          router.push('/carsale-upload')
+        }
 
       console.log("Form Submitted Successfully", data);
 

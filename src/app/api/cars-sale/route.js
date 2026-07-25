@@ -32,7 +32,7 @@ export const POST  = async (req) =>{
         fuel,
         price,
         location,
-        propertyImages
+        carsaleImages
     } = await req.json();
     
   
@@ -47,7 +47,7 @@ export const POST  = async (req) =>{
         !fuel ||
         !price||
         !location||
-        !propertyImages) {
+        !carsaleImages) {
         return Response.json({ message: "All fields are required" }, { status: 400 });
 
     }
@@ -58,14 +58,14 @@ export const POST  = async (req) =>{
             listedBy: authResult.userId,
             usedBy,
             year,
-            featuredCar:   featuredCar || false, // default to false if not provided
+            featuredCar: featuredCar || false, // default to false if not provided
             modern,
             body,
             transmission,
             fuel,
             price,
             location,
-            propertyImages,
+            carsaleImages,
         })
 
         if (!newcarSale) {
@@ -93,5 +93,40 @@ export const POST  = async (req) =>{
             message: "Failed to create Car Sale",
             error: error.message
         }, { status: 500 });
+    }
+}
+
+// GET request handler to fetch all properties from the database
+export const GET = async (req, res) => {
+
+    // check for authentication
+    const authResult = authenticateRequest(req);
+    console.log("Authentication result:", authResult);
+    if (authResult.error) {
+
+        return authResult.error;
+    }
+
+    // check if the user is an admin or seller
+    const roleResult = authorizeRoles(authResult, ["admin", "seller"]);
+    if (roleResult) {
+        return roleResult;
+    }
+
+    try {
+        await connectToDb();
+
+        // fetch all properties with status "approved", 
+        // populate the listedBy field with the user's first name and 
+        // email, and sort by creation date in descending order
+        const carsale = await CarsaleModel.find()
+            .populate("listedBy", "firstName email -_id")
+            .sort({ createdAt: -1 })
+        return Response.json({ carsale }, { status: 200 });
+    }
+
+    catch (error) {
+        console.error("Error fetching cars sale:", error);
+        return Response.json({ message: "Failed to fetch cars sale" }, { status: 500 });
     }
 }

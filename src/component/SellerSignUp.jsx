@@ -1,9 +1,9 @@
-
 "use client"
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { IoCarSportOutline } from 'react-icons/io5';
+import axios from 'axios'
 
 export default function SellerSignUp() {
     const [loading, setLoading] = useState(false);
@@ -23,7 +23,23 @@ export default function SellerSignUp() {
     }
     setLoading(true);
     try {
-     alert("Form Submitted Successfully", data);
+    
+     const userType='seller';
+     console.log("User data ", data )
+     const payload={
+
+      firstName:data.firstName,
+      lastName:data.lastName,
+      email:data.email,
+      password:data.password,
+      busName:data.password,
+      mobile:data.mobile,
+      busName:data.busName,
+      userType
+
+     }
+
+     const res=await axios.post('api/sign-up', payload)
       // Clear all form fields
       reset();
     } catch (error) { 
@@ -62,7 +78,7 @@ export default function SellerSignUp() {
                 <input
                   type="text" placeholder='Name'
                   className="w-full p-2 h-auto lg:w-full border rounded-lg"
-                  {...register("FirstName", {
+                  {...register("firstName", {
                     required: "Name field is required",
                   })}
                 />

@@ -7,9 +7,11 @@ import bcrypt from "bcryptjs";
 
 export const POST = async (req) => {
   // destructure the request body to get the user data
-  const { firstName, lastName, email, password, mobile } = await req.json();
+  const { firstName, lastName, email, password, mobile, busName, userType } = await req.json();
 
-  if (!firstName || !lastName || !email || !password || !mobile) {
+  console.log(firstName, lastName, email, password, mobile, busName, userType)
+
+  if (!firstName || !lastName || !email || !password || !mobile || !busName) {
     return Response.json(
       { error: "Missing required fields- firstName or lastName or email or password or mobile" },{ status: 400 });
   }
@@ -34,6 +36,8 @@ export const POST = async (req) => {
       // create a new user
       // invitation expiration time
       const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
+
+    
       
       const newUser = await User.create({
         firstName,
@@ -41,6 +45,7 @@ export const POST = async (req) => {
         email,
         password: hashedPassword,
         mobile,
+        userRole: userType || 'buyer'
       });
 
       if (!newUser) {

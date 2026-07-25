@@ -1,12 +1,27 @@
 import { v2 as cloudinary } from "cloudinary";
-  cloudinary.config({
+
+cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 export async function POST(req) {
- const data = await req.formData();
+
+   // check for authentication
+      const authResult = authenticateRequest(req);
+      console.log("Authentication result:", authResult);
+      if (authResult.error) {
+  
+          return authResult.error;
+      }
+  
+      // check if the user is an admin or seller
+      const roleResult = authorizeRoles(authResult, ["admin", "seller"]);
+      if (roleResult) {
+          return roleResult;
+      }
+  const data = await req.formData();
   const file = data.get("file");
 
   const bytes = await file.arrayBuffer();
@@ -25,7 +40,8 @@ export async function POST(req) {
     url: uploadResult.secure_url,
   });
 
- try{
+
+  try {
     const data = await req.formData();
     const file = data.get("file");
 
@@ -48,8 +64,7 @@ export async function POST(req) {
     return Response.json({
       url: result.secure_url,
     });
-
- } catch (error) {
+  } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
   }
 }

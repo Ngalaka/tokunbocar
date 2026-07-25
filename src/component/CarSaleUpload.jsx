@@ -1,11 +1,13 @@
 "use client";
+
 import axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import React from "react";
 import { IoCarSportOutline } from "react-icons/io5";
 
-export default function PropertyForm() {
+export default function CarSaleUpload() {
   const [selectedImages, setSelectedImages] = useState([]);
   const [previewImages, setPreviewImages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -55,12 +57,24 @@ export default function PropertyForm() {
         process.env.NEXT_PUBLIC_CLOUDINARY_PRESET_NAME,
       );
 
-      const res = await axios.post(
-        `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,
-        formData,
-      );
+      // console.log("Cloud Name:", process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME);
 
-      uploadedImages.push(res.data.secure_url);
+      // console.log(
+      //   "Upload Preset:",
+      //   process.env.NEXT_PUBLIC_CLOUDINARY_PRESET_NAME,
+      // );
+
+      try {
+        const res = await axios.post(
+          `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,
+          formData,
+        );
+
+        uploadedImages.push(res.data.secure_url);
+      } catch (error) {
+        console.log("Cloudinary Error:");
+        console.log(error.response?.data);
+      }
     }
 
     return uploadedImages;
@@ -79,14 +93,10 @@ export default function PropertyForm() {
       const imageUrls = await uploadImagesToCloudinary();
 
       const payload = {
-        usedBy: data.usedBy,
-        year: data.year,
-        modern: data.modern,
-        body: data.body,
-        transmission: data.transmission,
-        fuel: data.fuel,
-        price: Number(data.price),
-        location: data.location,
+        //   rooms: Number(data.rooms),
+        //   bathrooms: Number(data.bathrooms),
+        //   propertyType: data.propertyType,
+        //   location:data.location,
         images: imageUrls,
       };
 
@@ -103,264 +113,238 @@ export default function PropertyForm() {
       //     setPreviewImages([]);
       //   }
     } catch (error) {
-      console.log(error);
-      alert("Something went wrong");
+      console.log("Cloudinary Error:", error.response?.data);
     } finally {
       setLoading(false);
     }
   };
-
   return (
     <>
-     <div className="w-full min-h-screen bg-gray-100  lg:w-full lg:h-auto lg:bg-transparent lg:px-0 lg:py-0 lg:mx-auto lg:p-6">
-  <div className="w-full bg-white rounded-xl  p-4 lg:p-0 lg:w-200 lg:h-full lg:rounded-none lg:shadow-md m-auto">
+      <div className="w-full min-h-screen bg-gray-100  lg:w-full lg:h-auto lg:bg-transparent lg:px-0 lg:py-0 lg:mx-auto lg:p-6">
+        <div className="w-full bg-white rounded-xl  p-4 lg:p-0 lg:w-200 lg:h-full lg:rounded-none lg:shadow-md m-auto">
+          {/* Logo */}
+          <div className="w-full lg:w-50 mx-auto flex flex-col items-center lg:items-start py-6">
+            <h1 className="w-full text-center lg:text-left font-bold text-3xl lg:text-2xl text-blue-800">
+              LAGOS
+            </h1>
 
-    {/* Logo */}
-    <div className="w-full lg:w-50 mx-auto flex flex-col items-center lg:items-start py-6">
-      <h1 className="w-full text-center lg:text-left font-bold text-3xl lg:text-2xl text-blue-800">
-        LAGOS
-      </h1>
+            <div className="w-full flex justify-center items-center gap-3">
+              <span className="text-3xl lg:text-2xl text-blue-800">
+                <IoCarSportOutline />
+              </span>
 
-      <div className="w-full flex justify-center items-center gap-3">
-        <span className="text-3xl lg:text-2xl text-blue-800">
-          <IoCarSportOutline />
-        </span>
-
-        <span className="text-lg lg:text-xl lg:font-semibold text-blue-800">
-          Used Car
-        </span>
-      </div>
-    </div>
-
-    {/* Form */}
-    <div className="w-full max-w-3xl mx-auto px-3 py-5 lg:p-6">
-
-      <h1 className="text-2xl lg:text-3xl font-bold text-center lg:text-left mb-6">
-        Car Sale Upload
-      </h1>
-
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="space-y-5 lg:space-y-6"
-      >
-
-        {/* Used By */}
-        <div>
-          <label className="block mb-2 text-sm lg:text-base font-semibold">
-            Used By
-          </label>
-
-          <input
-            type="text"
-            placeholder="Enter Car used By"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
-            {...register("usedBy")}
-          />
-        </div>
-
-        {/* Year */}
-
-        <div>
-          <label className="block mb-2 text-sm lg:text-base font-semibold">
-            Year
-          </label>
-
-          <input
-            type="text"
-            placeholder="Enter Car Year"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
-            {...register("year")}
-          />
-        </div>
-
-        {/* Model */}
-
-        <div>
-          <label className="block mb-2 text-sm lg:text-base font-semibold">
-            Modern
-          </label>
-
-          <input
-            type="text"
-            placeholder="Enter Car Model"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
-            {...register("modern")}
-          />
-        </div>
-
-        {/* Body */}
-
-        <div>
-          <label className="block mb-2 text-sm lg:text-base font-semibold">
-            Car Body
-          </label>
-
-          <input
-            type="text"
-            placeholder="Enter Car Body"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
-            {...register("body")}
-          />
-        </div>
-
-        {/* Transmission */}
-
-        <div>
-
-          <label className="block mb-2 text-sm lg:text-base font-semibold">
-            Transmission
-          </label>
-
-          <div className="flex flex-col gap-3 sm:flex-row sm:gap-6">
-
-            <label className="flex items-center gap-2 text-sm lg:text-base">
-              <input
-                type="radio"
-                value="manual"
-                {...register("transmission")}
-              />
-              Manual
-            </label>
-
-            <label className="flex items-center gap-2 text-sm lg:text-base">
-              <input
-                type="radio"
-                value="automatic"
-                {...register("transmission")}
-              />
-              Automatic
-            </label>
-
-            <label className="flex items-center gap-2 text-sm lg:text-base">
-              <input
-                type="radio"
-                value="electric"
-                {...register("transmission")}
-              />
-              Electric
-            </label>
-
+              <span className="text-lg lg:text-xl lg:font-semibold text-blue-800">
+                Used Car
+              </span>
+            </div>
           </div>
-        </div>
 
-        {/* Fuel */}
+          {/* Form */}
+          <div className="w-full max-w-3xl mx-auto px-3 py-5 lg:p-6">
+            <h1 className="text-2xl lg:text-3xl font-bold text-center lg:text-left mb-6">
+              Car Sale Upload
+            </h1>
 
-        <div>
-
-          <label className="block mb-2 text-sm lg:text-base font-semibold">
-            Fuel Type
-          </label>
-
-          <input
-            type="text"
-            placeholder="Enter Fuel"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
-            {...register("fuel")}
-          />
-        </div>
-
-        {/* Price */}
-
-        <div>
-
-          <label className="block mb-2 text-sm lg:text-base font-semibold">
-            Car Price
-          </label>
-
-          <input
-            type="text"
-            placeholder="Enter Price"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
-            {...register("price")}
-          />
-        </div>
-
-        {/* Location */}
-
-        <div>
-
-          <label className="block mb-2 text-sm lg:text-base font-semibold">
-            Location
-          </label>
-
-          <input
-            type="text"
-            placeholder="Enter Location"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
-            {...register("location")}
-          />
-        </div>
-
-        {/* Upload */}
-
-        <div>
-
-          <label className="block mb-2 text-sm lg:text-base font-semibold">
-            Upload Images
-          </label>
-
-          <input
-            type="file"
-            multiple
-            accept="image/*"
-            onChange={handleImageChange}
-            className="w-full border border-dashed border-blue-400 rounded-lg bg-gray-50 p-3 text-sm"
-          />
-
-          <p className="text-xs lg:text-sm text-gray-500 mt-2">
-            Maximum of 7 images
-          </p>
-
-        </div>
-
-        {/* Preview */}
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 lg:gap-4">
-
-          {previewImages.map((image, index) => (
-
-            <div
-              key={index}
-              className="relative h-28 sm:h-36 lg:h-40 rounded-lg overflow-hidden"
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-5 lg:space-y-6"
             >
+              {/* Used By */}
+              <div>
+                <label className="block mb-2 text-sm lg:text-base font-semibold">
+                  Used By
+                </label>
 
-              <Image
-                src={image}
-                alt="Preview"
-                fill
-                className="object-cover"
-              />
+                <input
+                  type="text"
+                  placeholder="Enter Car used By"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  {...register("usedBy")}
+                />
+              </div>
+
+              {/* Year
+
+              <div>
+                <label className="block mb-2 text-sm lg:text-base font-semibold">
+                  Year
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Enter Car Year"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  {...register("year")}
+                />
+              </div> */}
+
+              {/* Model */}
+
+              {/* <div>
+                <label className="block mb-2 text-sm lg:text-base font-semibold">
+                  Modern
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Enter Car Model"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  {...register("modern")}
+                />
+              </div> */}
+
+              {/* Body */}
+
+              {/* <div>
+                <label className="block mb-2 text-sm lg:text-base font-semibold">
+                  Car Body
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Enter Car Body"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  {...register("body")}
+                />
+              </div> */}
+
+              {/* Transmission */}
+
+              {/* <div>
+                <label className="block mb-2 text-sm lg:text-base font-semibold">
+                  Transmission
+                </label>
+
+                <div className="flex flex-col gap-3 sm:flex-row sm:gap-6">
+                  <label className="flex items-center gap-2 text-sm lg:text-base">
+                    <input
+                      type="radio"
+                      value="manual"
+                      {...register("transmission")}
+                    />
+                    Manual
+                  </label>
+
+                  <label className="flex items-center gap-2 text-sm lg:text-base">
+                    <input
+                      type="radio"
+                      value="automatic"
+                      {...register("transmission")}
+                    />
+                    Automatic
+                  </label>
+
+                  <label className="flex items-center gap-2 text-sm lg:text-base">
+                    <input
+                      type="radio"
+                      value="electric"
+                      {...register("transmission")}
+                    />
+                    Electric
+                  </label>
+                </div>
+              </div> */}
+
+              {/* Fuel */}
+
+              {/* <div>
+                <label className="block mb-2 text-sm lg:text-base font-semibold">
+                  Fuel Type
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Enter Fuel"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  {...register("fuel")}
+                />
+              </div> */}
+
+              {/* Price */}
+
+              {/* <div>
+                <label className="block mb-2 text-sm lg:text-base font-semibold">
+                  Car Price
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Enter Price"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  {...register("price")}
+                />
+              </div> */}
+
+              {/* Location */}
+
+              {/* <div>
+                <label className="block mb-2 text-sm lg:text-base font-semibold">
+                  Location
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Enter Location"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  {...register("location")}
+                />
+              </div> */}
+
+              {/* IMAGE INPUT */}
+              <div>
+                <label className="block mb-2 font-medium">Upload Images</label>
+
+                <input
+                  type="file"
+                  multiple
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className="w-full border p-3 rounded-lg"
+                />
+
+                <p className="text-sm text-gray-500 mt-2">
+                  Maximum of 7 images
+                </p>
+              </div>
+
+              {/* IMAGE PREVIEW */}
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {previewImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className="relative h-40 rounded-lg overflow-hidden"
+                  >
+                    <Image
+                      src={image}
+                      alt="Preview"
+                      fill
+                      className="object-cover"
+                    />
+
+                    <button
+                      type="button"
+                      onClick={() => removeImage(index)}
+                      className="absolute top-2 right-2 bg-red-500 text-white w-7 h-7 rounded-full"
+                    >
+                      X
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              {/* Submit */}
 
               <button
-                type="button"
-                onClick={() => removeImage(index)}
-                className="absolute top-2 right-2 bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center"
+                type="submit"
+                disabled={loading}
+                className="bg-black text-white px-6 py-3 rounded-lg"
               >
-                X
+                {loading ? "Uploading..." : "Upload Property"}
               </button>
-
-            </div>
-
-          ))}
-
+            </form>
+          </div>
         </div>
-
-        {/* Submit */}
-
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-blue-900 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg text-sm lg:text-base transition-all duration-300"
-        >
-          {loading ? "Uploading..." : "Upload Car Information"}
-        </button>
-
-      </form>
-
-    </div>
-
-  </div>
-</div>
+      </div>
     </>
   );
 }

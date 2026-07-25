@@ -10,6 +10,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination"
 
 export default function Recentcar() {
+  //  const [data, setData] = useState({carsale: [] });
+  //   const [loading, setLoading] = useState(true);
+  //   const token= localStorage.getItem("token");
+
    const addCars = [
     {
       id: 1,
@@ -98,6 +102,45 @@ export default function Recentcar() {
       time: "Listed 6 hours ago"
     },
   ];
+
+    // const fetchProperties = async () => {
+    //     try {
+    //         setLoading(true);
+    //         const res = await axios.get("/api/cars-sale", {
+    //             headers:{
+    //                 Authorization: `Bearer ${token}`
+    //             }
+    //         });
+
+    //         // add token to authorization headers
+
+
+    //         // Assuming res.data is { properties: [...] }
+    //         console.log("fetched data", res.data)
+    //         setData(res.data);
+    //     } catch (error) {
+    //         console.error("Error fetching properties:", error);
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
+
+    // useEffect(() => {
+    //     fetchProperties();
+    // }, []);
+
+    // // 2. Logic for filtering (Optional: can be applied to data.properties)
+    // // const filteredProperties = data.properties.filter((property) => {
+    // //     const matchesSearch = property.propertyTitle?.toLowerCase().includes(search.toLowerCase()) ||
+    // //         property.city?.toLowerCase().includes(search.toLowerCase());
+    // //     const matchesType = type === "duplex" || property.propertyType === type;
+    // //     const matchesPrice = property.price <= maxPrice;
+    // //     return matchesSearch && matchesType && matchesPrice;
+
+        
+    // // });
+
+    // const filteredProperties = data?.properties
   return (
     <>
       {/* Recently car */}

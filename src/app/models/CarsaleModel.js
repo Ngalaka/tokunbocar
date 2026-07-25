@@ -61,7 +61,7 @@ const CarsaleSchema = new mongoose.Schema({
 
     },
 
-    propertyImages: {
+     carsaleImages: {
       type: [String],
       required: true,
     },

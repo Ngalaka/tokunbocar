@@ -1,42 +1,55 @@
  "use client"
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
-import { RiCloseCircleLine } from 'react-icons/ri';
-import Navbar from './Navbar';
-import Image from 'next/image';
 import { IoCarSportOutline } from 'react-icons/io5';
 import Link from 'next/link';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 export default function BuyerSignUp() {
+  const [loading, setLoading] = useState(false);
+  // destructure useForm to get register, handleSubmit, errors, and reset functions
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    //  getValues, // for checking password and confirm password
+  } = useForm();
+ 
+  const onSubmit = async (data) => {
+    // compare password and confirm password
+    if (data.password !== data.confirm) {
+     return alert("Passwords do not match");
+    }
+    setLoading(true);
+    try {
+    
+     const userType='buyer';
+     console.log("User data ", data )
+     const payload={
 
- const [loading, setLoading] = useState(false);
-   // destructure useForm to get register, handleSubmit, errors, and reset functions
-   const {
-     register,
-     handleSubmit,
-     formState: { errors },
-     reset,
-     //  getValues, // for checking password and confirm password
-   } = useForm();
-  
-   const onSubmit = async (data) => {
-     // compare password and confirm password
-     if (data.password !== data.confirm) {
-      return alert("Passwords do not match");
+      firstName:data.firstName,
+      lastName:data.lastName,
+      email:data.email,
+      password:data.password,
+      busName:data.password,
+      mobile:data.mobile,
+      userType
+
      }
-     setLoading(true);
-     try {
- 
-      alert("Form Submitted Successfully", data);
- 
-       // Clear all form fields
-       reset();
-     } catch (error) {
-       console.log(error);
-     } finally {
-       setLoading(false);
-     }
-   };
+
+     const res=await axios.post('api/sign-up', payload)
+      // Clear all form fields
+      reset();
+    } catch (error) { 
+      setLoading(false);
+      console.log(error);
+      
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <>
 

@@ -1,5 +1,6 @@
 
 import mongoose from "mongoose";
+import { trim } from "zod";
 const userSchema= new mongoose.Schema({
     firstName:{
         type:String,
@@ -34,6 +35,11 @@ const userSchema= new mongoose.Schema({
     trim: true
   },
 
+  busName:{
+   type:String,
+   trim:true
+
+  },
 
     isEmailVerified:{
         type:Boolean,
