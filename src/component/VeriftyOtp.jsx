@@ -71,7 +71,7 @@ export default function VeriftyOtp() {
             <h1 className='w-full text-2xl text-center lg:w-100 font-semibold lg:text-3xl lg:mx-auto text-blue-800 py-2 px-2'>Verify your account</h1>
 
             <form action="" onSubmit={handleSubmit(onSubmit)}>
-              <div className='w-[90%] mx-auto lg:w-full lg:py-4 lg:mx-1'>
+              <div className='w-full mx-auto lg:w-full lg:py-4 lg:mx-1'>
                 <label className=" block mb-2 font-medium">
                   Email
                 </label>
@@ -91,33 +91,33 @@ export default function VeriftyOtp() {
                 )}
               </div>
 
-              <div className='w-[90%] py-2 mx-auto lg:w-full lg:py-2 lg:mx-1'>
+              <div className='w-full py-2 mx-auto lg:w-full lg:py-2 lg:mx-1'>
                 <label className="block mb-2 font-medium">
-                  User CODE
+                  Users OTP
                 </label>
 
                 <div className="border border-black  px-2 outline-none hover:outline-1 rounded-lg placeholder:px-3 text-sm flex justify-between items-center">
                   <input
-                    type="text" name='code' placeholder='enter your code'
+                    type="text" name='otp' placeholder='enter your code'
                     className="w-full p-2 h-auto lg:w-full outline-none"
-                    {...register("code", {
-                      required: "CODE field is required",
-                     
+                    {...register("otp", {
+                      required: "User Otp field is required",
+               
                     })}
                   />
                  
                 </div>
 
-                {errors.code && (
+                {errors.otp && (
                   <p className="text-red-500 text-sm py-1">
-                    {errors.code.message}
+                    {errors.otp.message}
                   </p>
                 )}
               </div>
 
 
 
-              <div className="w-[90%] mx-auto flex-col justify-start items-start py-4 lg:py-2 lg:mx-1 lg:w-full flex lg:flex-row lg:justify-between lg:items-center lg:gap-2 ">
+              <div className="w-full mx-auto flex-col justify-start items-start py-4 lg:py-2 lg:mx-1 lg:w-full flex lg:flex-row lg:justify-between lg:items-center lg:gap-2 ">
                 <p>
                   verify your account if you have an account, please
                   <Link href="/sign-in" className='px-2 text-blue-600  underline'>
@@ -127,11 +127,11 @@ export default function VeriftyOtp() {
 
               </div>
 
-              <div className=" w-[90%] mx-auto lg:w-full l  flex flex-col justify-center items-center gap-2 py-2 ">
+              <div className="w-full mx-auto lg:w-full l  flex flex-col justify-center items-center gap-2 py-2 ">
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-full h-auto p-2   lg:p-2 rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-gray-300 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
+                  className={`w-full h-auto p-2   lg:p-2 rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-blue-500 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
                 >
                   {loading ? "Verifying..." : "Verify OTP"}
                 </button>

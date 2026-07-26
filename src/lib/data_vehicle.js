@@ -9,7 +9,7 @@ export const data_vehicle =[
       fuel: "Petrol",
       price: 150000,
       location: "Lagos",
-      image: "/image/nissan.jfif"
+      image: "/image2/car18"
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ export const data_vehicle =[
       fuel: "Petrol",
       price: 3000000,
       location: "Lagos",
-      image: "/image/nissan.jfif"
+       image: "/image2/car18"
     },
     {
       id: 3,
@@ -33,7 +33,7 @@ export const data_vehicle =[
       fuel: "Petrol",
       price: 18000000,
       location: "Abuja",
-      image: "/image/nissan.jfif"
+      image: "/image2/car18"
     },
     {
       id: 4,
@@ -45,7 +45,7 @@ export const data_vehicle =[
       fuel: "Petrol",
       price: 12000000,
       location: "Lagos",
-      image: "/image/nissan.jfif"
+     image: "/image2/car18"
     },
 
     {
@@ -58,7 +58,7 @@ export const data_vehicle =[
       fuel: "Diesel",
       price: 35000000,
       location: "Lagos",
-      image: "/image/nissan.jfif"
+      image: "/image2/car18"
     },
 
     {
@@ -71,7 +71,7 @@ export const data_vehicle =[
       fuel: "Petrol",
       price: 9800000,
       location: "Lagos",
-      image: "/image/nissan.jfif"
+      image: "/image2/car18"
     },
     {
       id: 7,
@@ -83,7 +83,7 @@ export const data_vehicle =[
       fuel: "Petrol",
       price: 2000000,
       location: "Lagos",
-      image: "/image/nissan.jfif"
+       image: "/image2/car18"
     },
     {
       id: 8,
@@ -95,7 +95,7 @@ export const data_vehicle =[
       fuel: "Petrol",
       price: 15500000,
       location: "Lagos",
-      image: "/image/nissan.jfif"
+       image: "/image2/car18"
     },
     {
       id: 9,
@@ -107,7 +107,7 @@ export const data_vehicle =[
       fuel: "Petrol",
       price: 12000000,
       location: "Lagos",
-      image: "/image/nissan.jfif"
+      image: "/image2/car18"
     },
 
     {
@@ -120,7 +120,7 @@ export const data_vehicle =[
       fuel: "Diesel",
       price: 35000000,
       location: "Lagos",
-      image: "/image/nissan.jfif"
+      image: "/image2/car18"
     },
   
 

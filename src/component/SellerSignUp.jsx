@@ -1,13 +1,20 @@
-"use client"
-import Link from 'next/link';
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form';
-import { IoCarSportOutline } from 'react-icons/io5';
-import axios from 'axios'
+"use client";
+import Link from "next/link";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { IoCarSportOutline } from "react-icons/io5";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { notifySuccess, notifyError } from "@/lib/toast";
 
 export default function SellerSignUp() {
-    const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  // use router
+  const router = useRouter();
+
   // destructure useForm to get register, handleSubmit, errors, and reset functions
+
   const {
     register,
     handleSubmit,
@@ -15,37 +22,47 @@ export default function SellerSignUp() {
     reset,
     //  getValues, // for checking password and confirm password
   } = useForm();
- 
+
   const onSubmit = async (data) => {
     // compare password and confirm password
     if (data.password !== data.confirm) {
-     return alert("Passwords do not match");
+      return alert("Passwords do not match");
     }
     setLoading(true);
     try {
-    
-     const userType='seller';
-     console.log("User data ", data )
-     const payload={
+      const userType = "seller";
+      console.log("User data ", data);
+      const payload = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        password: data.password,
+        busName: data.password,
+        mobile: data.mobile,
+        busName: data.busName,
+        userType,
+      };
 
-      firstName:data.firstName,
-      lastName:data.lastName,
-      email:data.email,
-      password:data.password,
-      busName:data.password,
-      mobile:data.mobile,
-      busName:data.busName,
-      userType
+      const res = await axios.post("/api/sign-up", payload);
 
-     }
+      if (res.status === 201) {
+        router.push("/verify-code");
+      }
+      console.log("Form Submitted Successfully", data);
 
-     const res=await axios.post('api/sign-up', payload)
-      // Clear all form fields
+      notifySuccess(
+        // response.data.message ||
+        "Login Successful",
+      );
+      //  Clear all form fields
       reset();
-    } catch (error) { 
+    } catch (error) {
       setLoading(false);
       console.log(error);
-      
+      notifyError(
+        // error.response?.data?.message ||
+        "SignUp Failed",
+      );
     } finally {
       setLoading(false);
     }
@@ -55,28 +72,32 @@ export default function SellerSignUp() {
       <div className="w-full lg:w-[60%] h-auto  lg:mx-auto lg: p-6">
         {/*Seller Sign  */}
         <div className="w-full h-auto shadow-md  bg-white  lg:w-200 lg:h-full m-auto lg:shadow-xl ">
-          <div className='w-full lg:w-50 mx-auto h-auto flex flex-col justify-start items-start text-center py-4'>
-            <h1 className='w-full font-bold text-2xl cursor-pointer py-2 px-12 '>LAGOS</h1>
+          <div className="w-full lg:w-50 mx-auto h-auto flex flex-col justify-start items-start text-center py-4">
+            <h1 className="w-full font-bold text-2xl cursor-pointer py-2 px-12 ">
+              LAGOS
+            </h1>
 
-            <div className='w-full h-auto flex justify-center items-center gap-4'>
-              <span><IoCarSportOutline /></span>
+            <div className="w-full h-auto flex justify-center items-center gap-4">
+              <span>
+                <IoCarSportOutline />
+              </span>
               <span> Used Car</span>
             </div>
           </div>
 
           {/* form  */}
           <div className="w-full h-auto mx-auto p-2 lg:max-w-3xl lg:mx-auto lg:p-6">
-            <h1 className="text-center text-xl lg:text-center lg:font-semibold lg:text-3xl text-blue-800">Create your seller account</h1>
+            <h1 className="text-center text-xl lg:text-center lg:font-semibold lg:text-3xl text-blue-800">
+              Create your seller account
+            </h1>
 
             <form action="" onSubmit={handleSubmit(onSubmit)}>
-
-              <div className='w-[90%] py-2 mx-auto lg:w-full '>
-                <label className=" block mb-2 font-medium">
-                  First name
-                </label>
+              <div className="w-full py-2 mx-auto lg:w-full ">
+                <label className=" block mb-2 font-medium">First name</label>
 
                 <input
-                  type="text" placeholder='Name'
+                  type="text"
+                  placeholder="Name"
                   className="w-full p-2 h-auto lg:w-full border rounded-lg"
                   {...register("firstName", {
                     required: "Name field is required",
@@ -90,13 +111,12 @@ export default function SellerSignUp() {
                 )}
               </div>
 
-                   <div className='w-[90%] py-2 mx-auto lg:w-full '>
-                <label className=" block mb-2 font-medium">
-                  First name
-                </label>
+              <div className="w-full py-2 mx-auto lg:w-full ">
+                <label className=" block mb-2 font-medium">Last name</label>
 
                 <input
-                  type="text" placeholder='Name'
+                  type="text"
+                  placeholder="Name"
                   className="w-full p-2 h-auto lg:w-full border rounded-lg"
                   {...register("lastName", {
                     required: "Name field is required",
@@ -110,14 +130,12 @@ export default function SellerSignUp() {
                 )}
               </div>
 
-
-              <div className='w-[90%] py-2 mx-auto lg:w-full '>
-                <label className=" block mb-2 font-medium">
-                  Email
-                </label>
+              <div className="w-full py-2 mx-auto lg:w-full ">
+                <label className=" block mb-2 font-medium">Email</label>
 
                 <input
-                  type="email" placeholder='foreexample@gmail.com'
+                  type="email"
+                  placeholder="foreexample@gmail.com"
                   className="w-full p-2 h-auto lg:w-full border  rounded-lg"
                   {...register("email", {
                     required: "Email field is required",
@@ -131,13 +149,12 @@ export default function SellerSignUp() {
                 )}
               </div>
 
-              <div className='w-[90%] py-2 mx-auto lg:w-full lg:mx-1'>
-                <label className="block  font-medium">
-                  Password
-                </label>
+              <div className="w-w-full py-2 mx-auto lg:w-full lg:mx-1">
+                <label className="block  font-medium">Password</label>
 
                 <input
-                  type="password" placeholder='**************************'
+                  type="password"
+                  placeholder="**************************"
                   className="w-full p-2 h-auto lg:w-full border rounded-lg px-2 placeholder:text-xl font-semibold"
                   {...register("password", {
                     required: "Password field is required",
@@ -155,13 +172,14 @@ export default function SellerSignUp() {
                 )}
               </div>
 
-              <div className='w-full py-2 lg:w-full'>
+              <div className="w-full py-2 lg:w-full">
                 <label className="block mb-2 font-medium ">
                   Confirm Password
                 </label>
 
                 <input
-                  type="password" placeholder='********************'
+                  type="password"
+                  placeholder="********************"
                   className="w-full h-auto py-2 lg:w-full border rounded-lg px-2 placeholder:text-xl font-semibold"
                   {...register("confirm", {
                     required: "Confirm password field is required",
@@ -185,14 +203,12 @@ export default function SellerSignUp() {
                 )}
               </div>
 
-
-               <div className='w-[90%] py-2 mx-auto lg:w-full '>
-                <label className=" block mb-2 font-medium">
-                  Mobile Number
-                </label>
+              <div className="w-full py-2 mx-auto lg:w-full ">
+                <label className=" block mb-2 font-medium">Mobile Number</label>
 
                 <input
-                  type="text" placeholder='Name'
+                  type="text"
+                  placeholder="Name"
                   className="w-full p-2 h-auto lg:w-full border rounded-lg"
                   {...register("mobile", {
                     required: "Business name field is required",
@@ -206,14 +222,12 @@ export default function SellerSignUp() {
                 )}
               </div>
 
-
-               <div className='w-[90%] py-2 mx-auto lg:w-full '>
-                <label className=" block mb-2 font-medium">
-                  Business Name
-                </label>
+              <div className="w-full py-2 mx-auto lg:w-full ">
+                <label className=" block mb-2 font-medium">Business Name</label>
 
                 <input
-                  type="text" placeholder='Name'
+                  type="text"
+                  placeholder="Name"
                   className="w-full p-2 h-auto lg:w-full border rounded-lg"
                   {...register("busName", {
                     required: "Business name field is required",
@@ -227,8 +241,7 @@ export default function SellerSignUp() {
                 )}
               </div>
 
-              
-              <div className=" w-[90%] mx-auto lg:w-full l  flex flex-col justify-center items-center gap-2 py-2 ">
+              <div className="w-full mx-auto lg:w-full l  flex flex-col justify-center items-center gap-2 py-2 ">
                 <button
                   type="submit"
                   disabled={loading}
@@ -238,19 +251,19 @@ export default function SellerSignUp() {
                 </button>
               </div>
 
-              <div className='w-full py-2 lg:w-full'>
-                <Link href="/sign-in" className='flex justify-center items-center' >
+              <div className="w-full py-2 lg:w-full">
+                <Link
+                  href="/sign-in"
+                  className="flex justify-center items-center"
+                >
                   <p> Already have account?</p>
-                  <span className=' text-blue-600  underline'>Login</span>
+                  <span className=" text-blue-600  underline">Login</span>
                 </Link>
-
               </div>
             </form>
           </div>
-
         </div>
-
       </div>
     </>
-  )
+  );
 }

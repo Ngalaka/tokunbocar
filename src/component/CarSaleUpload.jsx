@@ -1,8 +1,7 @@
 "use client";
-
 import axios from "axios";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import React from "react";
 import { IoCarSportOutline } from "react-icons/io5";
@@ -57,13 +56,6 @@ export default function CarSaleUpload() {
         process.env.NEXT_PUBLIC_CLOUDINARY_PRESET_NAME,
       );
 
-      // console.log("Cloud Name:", process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME);
-
-      // console.log(
-      //   "Upload Preset:",
-      //   process.env.NEXT_PUBLIC_CLOUDINARY_PRESET_NAME,
-      // );
-
       try {
         const res = await axios.post(
           `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,
@@ -93,27 +85,42 @@ export default function CarSaleUpload() {
       const imageUrls = await uploadImagesToCloudinary();
 
       const payload = {
-        //   rooms: Number(data.rooms),
-        //   bathrooms: Number(data.bathrooms),
-        //   propertyType: data.propertyType,
-        //   location:data.location,
-        images: imageUrls,
+        usedBy: data.usedBy,
+        year: data.year,
+        modern: data.modern,
+        body: data.body,
+        transmission: data.transmission,
+        fuel: data.fuel,
+        price: Number(data.price),
+        location: data.location,
+        carsaleImages: imageUrls,
       };
 
       console.log("Payload to be sent to backend:", payload);
 
-      //   const res = await axios.post("/api/properties", payload);
+      const token = localStorage.getItem("token");
 
-      //   if (res.status === 201) {
-      //     alert("Property Uploaded Successfully");
+      console.log("Token:", token);
 
-      //     reset();
+      const res = await axios.post("/api/cars-sale", payload, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      // Clear all form fields
 
-      //     setSelectedImages([]);
-      //     setPreviewImages([]);
-      //   }
+      if (res.status === 201) {
+        alert("Car-sales Uploaded Successfully");
+
+        reset();
+
+        setSelectedImages([]);
+        setPreviewImages([]);
+      }
     } catch (error) {
-      console.log("Cloudinary Error:", error.response?.data);
+      setLoading(false);
+      console.log("Status:", error.response?.status);
+      console.log("Response:", error.response?.data);
     } finally {
       setLoading(false);
     }
@@ -163,8 +170,6 @@ export default function CarSaleUpload() {
                 />
               </div>
 
-              {/* Year
-
               <div>
                 <label className="block mb-2 text-sm lg:text-base font-semibold">
                   Year
@@ -176,11 +181,9 @@ export default function CarSaleUpload() {
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
                   {...register("year")}
                 />
-              </div> */}
-
+              </div>
               {/* Model */}
-
-              {/* <div>
+              <div>
                 <label className="block mb-2 text-sm lg:text-base font-semibold">
                   Modern
                 </label>
@@ -191,11 +194,9 @@ export default function CarSaleUpload() {
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
                   {...register("modern")}
                 />
-              </div> */}
-
+              </div>
               {/* Body */}
-
-              {/* <div>
+              <div>
                 <label className="block mb-2 text-sm lg:text-base font-semibold">
                   Car Body
                 </label>
@@ -206,11 +207,9 @@ export default function CarSaleUpload() {
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
                   {...register("body")}
                 />
-              </div> */}
-
+              </div>
               {/* Transmission */}
-
-              {/* <div>
+              <div>
                 <label className="block mb-2 text-sm lg:text-base font-semibold">
                   Transmission
                 </label>
@@ -243,11 +242,9 @@ export default function CarSaleUpload() {
                     Electric
                   </label>
                 </div>
-              </div> */}
-
+              </div>
               {/* Fuel */}
-
-              {/* <div>
+              <div>
                 <label className="block mb-2 text-sm lg:text-base font-semibold">
                   Fuel Type
                 </label>
@@ -258,11 +255,9 @@ export default function CarSaleUpload() {
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
                   {...register("fuel")}
                 />
-              </div> */}
-
+              </div>
               {/* Price */}
-
-              {/* <div>
+              <div>
                 <label className="block mb-2 text-sm lg:text-base font-semibold">
                   Car Price
                 </label>
@@ -273,11 +268,9 @@ export default function CarSaleUpload() {
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
                   {...register("price")}
                 />
-              </div> */}
-
+              </div>
               {/* Location */}
-
-              {/* <div>
+              <div>
                 <label className="block mb-2 text-sm lg:text-base font-semibold">
                   Location
                 </label>
@@ -288,8 +281,7 @@ export default function CarSaleUpload() {
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
                   {...register("location")}
                 />
-              </div> */}
-
+              </div>
               {/* IMAGE INPUT */}
               <div>
                 <label className="block mb-2 font-medium">Upload Images</label>
@@ -306,7 +298,6 @@ export default function CarSaleUpload() {
                   Maximum of 7 images
                 </p>
               </div>
-
               {/* IMAGE PREVIEW */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {previewImages.map((image, index) => (
@@ -331,9 +322,7 @@ export default function CarSaleUpload() {
                   </div>
                 ))}
               </div>
-
               {/* Submit */}
-
               <button
                 type="submit"
                 disabled={loading}

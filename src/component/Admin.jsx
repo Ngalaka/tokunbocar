@@ -69,7 +69,7 @@ export default function Admin() {
 
             <form action="" onSubmit={handleSubmit(onSubmit)}>
 
-              <div className='w-[90%] py-2 mx-auto lg:w-full '>
+              <div className='w-full py-2 mx-auto lg:w-full '>
                 <label className=" block mb-2 font-medium">
                   First name
                 </label>
@@ -90,7 +90,7 @@ export default function Admin() {
               </div>
 
 
-              <div className='w-[90%] py-2 mx-auto lg:w-full '>
+              <div className='w-full py-2 mx-auto lg:w-full '>
                 <label className=" block mb-2 font-medium">
                   Last name
                 </label>
@@ -111,7 +111,7 @@ export default function Admin() {
               </div>
 
 
-              <div className='w-[90%] py-2 mx-auto lg:w-full '>
+              <div className='w-full py-2 mx-auto lg:w-full '>
                 <label className=" block mb-2 font-medium">
                   Email
                 </label>
@@ -132,7 +132,7 @@ export default function Admin() {
               </div>
 
              
-              <div className='w-[90%] py-2 mx-auto lg:w-full lg:mx-1'>
+              <div className='w-full py-2 mx-auto lg:w-full lg:mx-1'>
                 <label className="block  font-medium">
                   Password
                 </label>
@@ -157,7 +157,7 @@ export default function Admin() {
               </div>
 
 
-              <div className='w-[90%] py-2 mx-auto lg:w-full lg:mx-1'>
+              <div className='w-full py-2 mx-auto lg:w-full lg:mx-1'>
                 <label className="block  font-medium">
                   Confirm password
                 </label>
@@ -181,7 +181,7 @@ export default function Admin() {
                 )}
               </div>
 
-               <div className='w-[90%] py-2 mx-auto lg:w-full '>
+               <div className='w-full py-2 mx-auto lg:w-full '>
                 <label className=" block mb-2 font-medium">
                   Mobile Number
                 </label>
@@ -201,7 +201,7 @@ export default function Admin() {
                 )}
               </div>
 
-              <div className='w-[90%] py-2 mx-auto lg:w-full '>
+              <div className='w-full py-2 mx-auto lg:w-full '>
                 <label className=" block mb-2 font-medium">
                  Access Code
                 </label>
@@ -221,11 +221,11 @@ export default function Admin() {
                 )}
               </div>
               
-              <div className=" w-[90%] mx-auto lg:w-full l  flex flex-col justify-center items-center gap-2 py-2 ">
+              <div className=" w-full mx-auto lg:w-full l  flex flex-col justify-center items-center gap-2 py-2 ">
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-full h-auto p-2  rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
+                  className={`w-full h-auto p-2  rounded-lg text-white lg:w-full lg:auto mx-auto   ${loading ? "bg-blue-500 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-700"}`}
                 >
                   {loading ? "Registering..." : "Register"}
                 </button>

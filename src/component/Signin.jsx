@@ -40,6 +40,7 @@ export default function Signin() {
         // remember this is not the production way to go
         // storing token in cookies is the better approach
         localStorage.setItem('token', res.data.data.token)
+        console.log("Saved Token:", localStorage.getItem("token"));
 
         // if the user is a buyer, route to the buyer's dashboard
         if (res.data.data.userRole === "buyer") {
@@ -82,7 +83,7 @@ export default function Signin() {
       <div className='w-full flex-col justify-center items-center  lg:w-[90%] lg:h-auto lg:flex lg:flex-row lg:justify-between lg:items-center lg:gap-16 lg:mx-auto'>
         {/* Car image */}
         <div className='w-full py-4 lg:w-[50%] h-auto lg:py-1'>
-          <Image src="/image2/car13.jpg" width={300} height={300} alt='Car logo' className='w-full h-auto  lg:w-full lg:h-[90vh] object-cover' />
+          <Image src="/image2/car8.jpg" width={300} height={300} alt='Car logo' className='w-full h-auto  lg:w-full lg:h-[90vh] object-cover' />
         </div>
 
 

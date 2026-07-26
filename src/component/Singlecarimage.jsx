@@ -61,7 +61,7 @@ export default function Singlecarimage() {
         {singlecar.map((single) => (
           <div key={single.id} >
             <div className="w-full h-auto  flex flex-col justify-start items-start gap-2">
-              <Image src={single.image} width={300} height={300} alt="Lagos used cars" className="w-full h-full lg:w-150 lg:h-150 object-cover" />
+              <Image src="/image2/car30.jpg" width={400} height={400} alt="Lagos used cars" priority  loading="eager" className="w-full h-full lg:w-150 lg:h-150 object-cover" />
             </div>
           </div>
         ))}

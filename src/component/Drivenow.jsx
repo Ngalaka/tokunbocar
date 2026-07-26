@@ -27,7 +27,7 @@ export default function Drivenow() {
             </div>
 
             <div className="w-full lg:w-[40%] h-auto">
-              <Image src="/image2/car8.jpg" width={400} height={400} alt="Lagos used cars " className="w-full h-auto lg:w-full lg:h-67.5 object-cover" />
+              <Image src="/image2/car30.jpg" width={400} height={400} alt="Lagos used cars" priority  loading="eager" className="w-full h-auto lg:w-full lg:h-67.5 object-cover" />
             </div>
           </div>
           </div>
