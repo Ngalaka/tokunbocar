@@ -15,7 +15,7 @@ export default function Testimony() {
    testi:"Found my Toyota Camery within 3 days. The seller was genuine and the process was so smooth.LagosUsedCars is the real deals",
    name: "Gift Ngalaka",
    model: "Bought a 2022 Camery",
-   image: "/image2/car18.jpg",
+   image: "/image2/car19.jpg",
   },
 
   {

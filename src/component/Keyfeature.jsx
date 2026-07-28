@@ -1,5 +1,4 @@
 "use client"
-import { keyfeature } from '@/lib/keyfeature'
 import React from 'react'
 import { TbPointFilled } from "react-icons/tb";
 

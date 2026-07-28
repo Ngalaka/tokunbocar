@@ -27,40 +27,32 @@ export default function BuyerSignUp() {
     if (data.password !== data.confirm) {
       return alert("Passwords do not match");
     }
-    setLoading(true);
+
     try {
-      const userType = "buyer";
-      console.log("User data ", data);
+      setLoading(true);
+
       const payload = {
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,
         password: data.password,
-        busName: data.password,
         mobile: data.mobile,
-        userType,
+        userType: "buyer",
       };
-
+      console.log("Payload:", payload);
       const res = await axios.post("/api/sign-up", payload);
 
-      if (res.status === 201) {
-        router.push("/verify-code");
-      }
-      console.log("Form Submitted Successfully", data);
+      console.log("Status:", res.status);
+      console.log("Response:", res.data);
 
-      notifySuccess(
-        // response.data.message ||
-        "Login Successful",
-      );
-      //  Clear all form fields
-      reset();
+      if (res.data.success || res.status==200) {
+        router.push("/verify-otp");
+        notifySuccess("Registration Successful");
+        reset();
+      }
     } catch (error) {
-      setLoading(false);
-      console.log(error);
-      notifyError(
-        // error.response?.data?.message ||
-        "SignUp Failed",
-      );
+      console.error(error.response?.data || error.message);
+      notifyError("Sign Up Failed");
     } finally {
       setLoading(false);
     }

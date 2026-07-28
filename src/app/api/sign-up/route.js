@@ -11,7 +11,7 @@ export const POST = async (req) => {
 
   console.log(firstName, lastName, email, password, mobile, busName, userType)
 
-  if (!firstName || !lastName || !email || !password || !mobile || !busName) {
+  if (!firstName || !lastName || !email || !password || !mobile) {
     return Response.json(
       { error: "Missing required fields- firstName or lastName or email or password or mobile" },{ status: 400 });
   }
@@ -66,7 +66,7 @@ export const POST = async (req) => {
       });
       return Response.json(
         { message: "User registered successfully", newUser },
-        { status: 201 },
+        { status: 200 },
       );
     }
   } catch (error) {
